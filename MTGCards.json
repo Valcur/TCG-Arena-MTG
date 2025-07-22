@@ -698026,12 +698026,12 @@
   "d7b177cf-59fd-44dc-9c56-1c4bcacb8468": {
     "id": "d7b177cf-59fd-44dc-9c56-1c4bcacb8468",
     "name": "Lander",
-    "type": "Land",
+    "type": "Artifact",
     "Card type": "Token Artifact — Lander",
     "face": {
       "front": {
         "name": "Lander",
-        "type": "Land",
+        "type": "Artifact",
         "cost": 0,
         "isHorizontal": false,
         "image": "https://cards.scryfall.io/normal/front/b/2/b25a7de0-0d5d-4b7a-a1bf-7483fa51392a.jpg?1752946475"

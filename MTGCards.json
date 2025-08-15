@@ -254366,7 +254366,8 @@
     "set": "twho",
     "isHorizontal": false,
     "power": 2,
-    "toughness": 2
+    "toughness": 2,
+    "isToken": true
   },
   "4e34a49d-f031-48ac-a458-97b79124b76c": {
     "id": "4e34a49d-f031-48ac-a458-97b79124b76c",
@@ -325724,7 +325725,8 @@
     "set": "tacr",
     "isHorizontal": false,
     "power": 2,
-    "toughness": 2
+    "toughness": 2,
+    "isToken": true
   },
   "64824ae5-efab-4b55-9d3c-b9c690bad857": {
     "id": "64824ae5-efab-4b55-9d3c-b9c690bad857",
@@ -374062,7 +374064,8 @@
     "set": "tltc",
     "isHorizontal": false,
     "power": 1,
-    "toughness": 1
+    "toughness": 1,
+    "isToken": true
   },
   "7324abaa-48da-439d-9339-b0ea5eea612e": {
     "id": "7324abaa-48da-439d-9339-b0ea5eea612e",
@@ -468098,7 +468101,8 @@
     "set": "tmkc",
     "isHorizontal": false,
     "power": 2,
-    "toughness": 2
+    "toughness": 2,
+    "isToken": true
   },
   "8f933fae-6c0c-42d7-a817-14760d8285cd": {
     "id": "8f933fae-6c0c-42d7-a817-14760d8285cd",
@@ -801047,7 +801051,8 @@
     "set": "tdsk",
     "isHorizontal": false,
     "power": 2,
-    "toughness": 2
+    "toughness": 2,
+    "isToken": true
   },
   "f4f66558-3c99-4488-ad2d-90626a922042": {
     "id": "f4f66558-3c99-4488-ad2d-90626a922042",

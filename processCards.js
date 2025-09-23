@@ -4,7 +4,7 @@ const zlib = require('zlib');
 const path = require('path');
 const { pipeline } = require('stream');
 const { promisify } = require('util');
-const modifyJsonFile = require('./your-script'); // ou mets le code ici directement
+const modifyJsonFile = require('./Script_MTG.js'); // ou mets le code ici directement
 
 const pipelineAsync = promisify(pipeline);
 

@@ -17,6 +17,9 @@ async function fetchScryfallData() {
       res.on('data', (chunk) => data += chunk);
       res.on('end', () => {
         try {
+          console.log("🔍 Données brutes reçues depuis Scryfall:");
+          console.log(data);
+          
           const json = JSON.parse(data);
 
           if (!json || !Array.isArray(json.data)) {

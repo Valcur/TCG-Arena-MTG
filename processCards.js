@@ -57,10 +57,8 @@ async function fetchScryfallData() {
 }
 
 async function downloadAndExtractJSON(url, destPath) {
-  const tempGz = destPath + '.gz';
-
   return new Promise((resolve, reject) => {
-    const file = fs.createWriteStream(tempGz);
+    const file = fs.createWriteStream(destPath);
 
     https.get(url, { headers: HEADERS }, (res) => {
       if (res.statusCode !== 200) {
@@ -68,17 +66,9 @@ async function downloadAndExtractJSON(url, destPath) {
       }
 
       res.pipe(file);
-      file.on('finish', async () => {
-        try {
-          const inp = fs.createReadStream(tempGz);
-          const out = fs.createWriteStream(destPath);
-          await pipelineAsync(inp, zlib.createGunzip(), out);
-          fs.unlinkSync(tempGz);
-          console.log(`✅ Fichier extrait : ${destPath}`);
-          resolve();
-        } catch (err) {
-          reject(new Error(`Erreur de décompression : ${err.message}`));
-        }
+      file.on('finish', () => {
+        console.log(`✅ Fichier téléchargé : ${destPath}`);
+        resolve();
       });
     }).on('error', (err) => {
       reject(new Error(`Erreur réseau : ${err.message}`));

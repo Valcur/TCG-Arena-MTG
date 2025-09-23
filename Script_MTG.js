@@ -156,5 +156,5 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
 }
 
 // Utilisation
-modifyJsonFile('oracle.json', 'MTGCards.json', 'all.json');
-
+//modifyJsonFile('oracle.json', 'MTGCards.json', 'all.json');
+module.exports = modifyJsonFile;

@@ -8,21 +8,32 @@ const modifyJsonFile = require('./Script_MTG.js'); // ou mets le code ici direct
 
 const pipelineAsync = promisify(pipeline);
 
-async function fetchScryfallData() {
-  const API_URL = 'https://api.scryfall.com/bulk-data';
+const HEADERS = {
+  'User-Agent': 'TCG-Arena-MTG/1.0 (GitHub Action)',
+  'Accept': 'application/json',
+};
 
+async function fetchScryfallData() {
   return new Promise((resolve, reject) => {
-    https.get(API_URL, (res) => {
+    const options = {
+      hostname: 'api.scryfall.com',
+      path: '/bulk-data',
+      headers: HEADERS
+    };
+
+    https.get(options, (res) => {
+      if (res.statusCode !== 200) {
+        return reject(new Error(`Erreur HTTP ${res.statusCode} en accédant à l'API Scryfall`));
+      }
+
       let data = '';
-      res.on('data', (chunk) => data += chunk);
+      res.on('data', chunk => data += chunk);
       res.on('end', () => {
         try {
-          console.log("🔍 Données brutes reçues depuis Scryfall:");
-          console.log(data);
-          
           const json = JSON.parse(data);
 
           if (!json || !Array.isArray(json.data)) {
+            console.log("🔍 Données brutes:", data);
             return reject(new Error("La réponse de Scryfall n'est pas valide"));
           }
 
@@ -50,27 +61,27 @@ async function downloadAndExtractJSON(url, destPath) {
 
   return new Promise((resolve, reject) => {
     const file = fs.createWriteStream(tempGz);
-    https.get(url, (res) => {
+
+    https.get(url, { headers: HEADERS }, (res) => {
       if (res.statusCode !== 200) {
-        return reject(new Error(`Téléchargement échoué depuis ${url}. Code HTTP: ${res.statusCode}`));
+        return reject(new Error(`Échec du téléchargement depuis ${url} - HTTP ${res.statusCode}`));
       }
 
       res.pipe(file);
       file.on('finish', async () => {
-        file.close();
-
         try {
           const inp = fs.createReadStream(tempGz);
           const out = fs.createWriteStream(destPath);
           await pipelineAsync(inp, zlib.createGunzip(), out);
-          fs.unlinkSync(tempGz); // supprime le .gz
+          fs.unlinkSync(tempGz);
+          console.log(`✅ Fichier extrait : ${destPath}`);
           resolve();
         } catch (err) {
-          reject(new Error(`Erreur de décompression: ${err.message}`));
+          reject(new Error(`Erreur de décompression : ${err.message}`));
         }
       });
     }).on('error', (err) => {
-      reject(new Error(`Erreur réseau: ${err.message}`));
+      reject(new Error(`Erreur réseau : ${err.message}`));
     });
   });
 }
@@ -80,12 +91,16 @@ async function main() {
     console.log('📡 Récupération des URLs depuis Scryfall...');
     const { oracleURL, defaultURL } = await fetchScryfallData();
 
-    console.log('⬇️ Téléchargement des fichiers...');
+    console.log('⬇️ Téléchargement des fichiers :');
     console.log(`- oracle.json: ${oracleURL}`);
     console.log(`- all.json: ${defaultURL}`);
 
     await downloadAndExtractJSON(oracleURL, 'oracle.json');
     await downloadAndExtractJSON(defaultURL, 'all.json');
+
+    if (!fs.existsSync('oracle.json') || !fs.existsSync('all.json')) {
+      throw new Error('❌ Les fichiers oracle.json ou all.json sont manquants après extraction.');
+    }
 
     console.log('⚙️ Traitement avec modifyJsonFile...');
     modifyJsonFile('oracle.json', 'MTGCards.json', 'all.json');

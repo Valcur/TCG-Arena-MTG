@@ -69,6 +69,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                     lastLoadedCard = c;
                     const { image, colors } = getImages(c);
                     const type = getCardType(c.type_line, c.set_type, c.name);
+                    const cost = c.cmc ? Math.trunc(c.cmc) : 0
                     const newCard = {
                         id: c.oracle_id,
                         name: c.name,
@@ -77,7 +78,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                             front: {
                                 name: c.name,
                                 type,
-                                cost: 0,
+                                cost: cost,
                                 isHorizontal: c.layout == "split" || type == "Battle",
                                 image: image.front
                             }
@@ -86,12 +87,12 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                         "Card type": c.type_line,
                         "Color identity": c.color_identity,
                         set: c.set,
-                        isHorizontal: c.layout == "split" || type == "Battle"
+                        isHorizontal: c.layout == "split" || type == "Battle",
+                        cost: cost
                     };
 
                     if (c.power) newCard.power = getPowerToughness(c.power);
                     if (c.toughness) newCard.toughness = getPowerToughness(c.toughness);
-                    if (c.cmc) newCard.cost = Math.trunc(c.cmc);
 
                     // Gestion des cartes split/back
                     if (c.card_faces) {

@@ -1,6 +1,6 @@
 {
     "name": "Magic the Gathering",
-    "menuBackgroundImage": "https://i.imgur.com/zV2lcZW.jpeg",
+    "menuBackgroundImage": "https://i.ibb.co/ZzKYNswJ/z-V2lc-ZW-Imgur.jpg",
     "deckBuilding": {
         "mainFilters": ["type", "Colors", "cost"],
         "costCurveIgnoredTypes": ["Land"],
@@ -372,7 +372,7 @@
     },
     "defaultRessources": {
         "backgrounds": [
-            "https://i.imgur.com/zV2lcZW.jpeg",
+            "https://i.ibb.co/ZzKYNswJ/z-V2lc-ZW-Imgur.jpg",
             "https://i.imgur.com/lJdO0uy.jpeg",
             "https://i.imgur.com/2TjUNMF.jpeg",
             "https://i.imgur.com/Poao2W2.jpeg",

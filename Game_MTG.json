@@ -77,6 +77,28 @@
                     "leavesAtEndOfTurn": false
                 }
             ],
+            "draggableTokens": [
+                {
+                    "id": "Orange",
+                    "name": "Orange token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Orange.png"
+                },
+                {
+                    "id": "Green",
+                    "name": "Green token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Green.png"
+                },
+                {
+                    "id": "Blue",
+                    "name": "Blue token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Blue.png"
+                },
+                {
+                    "id": "Purple",
+                    "name": "Purple token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Purple.png"
+                }
+            ],
             "sections": {
                 "customSections": ["Creatures", "Mana", "Other", "Commander"],
                 "layout": {
@@ -194,6 +216,28 @@
                     "leavesAtEndOfTurn": false
                 }
             ],
+            "draggableTokens": [
+                {
+                    "id": "Orange",
+                    "name": "Orange token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Orange.png"
+                },
+                {
+                    "id": "Green",
+                    "name": "Green token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Green.png"
+                },
+                {
+                    "id": "Blue",
+                    "name": "Blue token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Blue.png"
+                },
+                {
+                    "id": "Purple",
+                    "name": "Purple token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Purple.png"
+                }
+            ],
             "sections": {
                 "customSections": ["Creatures", "Mana", "Other", "Commander"],
                 "layout": {
@@ -297,6 +341,28 @@
                 "sharedTurn": false
             },
             "countersStartingValues": [20, 0],
+            "draggableTokens": [
+                {
+                    "id": "Orange",
+                    "name": "Orange token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Orange.png"
+                },
+                {
+                    "id": "Green",
+                    "name": "Green token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Green.png"
+                },
+                {
+                    "id": "Blue",
+                    "name": "Blue token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Blue.png"
+                },
+                {
+                    "id": "Purple",
+                    "name": "Purple token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Purple.png"
+                }
+            ],
             "sections": {
                 "customSections": ["Creatures", "Mana", "Other"],
                 "layout": {

@@ -46,6 +46,11 @@
                 "customCategories": ["Commander"],
                 "gameplay": "Duel_Commander",
                 "deckRuleset": "EDH"
+            },
+            {
+                "title": "Jumpstart",
+                "gameplay": "Classic",
+                "deckRuleset": "Classic"
             }
         ],
         "deckRulesets": {
@@ -464,7 +469,7 @@
             "https://i.imgur.com/AAMW7sU.jpeg",
             "https://i.imgur.com/HjVTFec.jpeg"
         ],
-        "decksUrl": "https://valcur.github.io/TCG-Arena-MTG/MTGDecks.json"
+        "decksUrl": "https://valcur.github.io/TCG-Arena-MTG/MTGDecks-Test.json"
     },
     "customHelp": "The app will tap cards in your mana section without looking at colors when paying the cost of cards. It will consider all cards in the resource section like a card that produce 1 mana (artifacts producing mana can be put in this section to be used automatically when paying mana costs). If you are expecting reactions from a permanent you play, remember that all cards can be put in the stack to resolve interactions.",
     "cards": {

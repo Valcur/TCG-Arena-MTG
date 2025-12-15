@@ -3,7 +3,10 @@
         "title": "EOE - World Shaper",
         "id": "EOE - World Shaper",
         "game": "Magic the Gathering",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-07-22T18:11:48.472Z",
         "lastModifiedAt": "2025-07-22T18:12:17.588Z",
@@ -386,7 +389,10 @@
         "title": "EOE - Counter Intelligence",
         "id": "EOE - Counter Intelligence",
         "game": "Magic the Gathering",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-07-22T18:09:56.394Z",
         "lastModifiedAt": "2025-07-22T18:11:06.855Z",
@@ -797,7 +803,10 @@
         "title": "FIN - Scions & Spellcraft",
         "id": "Scions & Spellcraft",
         "game": "Magic the Gathering",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-05-17T11:43:26.932Z",
         "lastModifiedAt": "2025-05-17T11:43:48.441Z",
@@ -1203,7 +1212,10 @@
         "title": "FIN - Counter Blitz",
         "id": "Counter Blitz",
         "game": "Magic the Gathering",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-05-17T11:42:27.914Z",
         "lastModifiedAt": "2025-05-17T11:42:53.533Z",
@@ -1614,7 +1626,10 @@
         "title": "FIN - Limit Break",
         "id": "Limit Break",
         "game": "Magic the Gathering",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-05-17T11:41:28.274Z",
         "lastModifiedAt": "2025-05-17T11:42:05.272Z",
@@ -2025,7 +2040,10 @@
         "title": "FIN - Revival Trance",
         "id": "Revival Trance",
         "game": "Magic the Gathering",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-05-17T11:37:28.443Z",
         "lastModifiedAt": "2025-05-17T11:40:51.778Z",
@@ -2429,7 +2447,13 @@
         "title": "BLB - Otter Limits",
         "id": "Otter Limits",
         "game": "Magic the Gathering",
-        "format": ["Modern", "Vintage", "Standard", "Legacy", "Pioneer"],
+        "format": [
+            "Modern",
+            "Vintage",
+            "Standard",
+            "Legacy",
+            "Pioneer"
+        ],
         "cardCount": 60,
         "createdAt": "2025-04-16T11:52:04.222Z",
         "lastModifiedAt": "2025-04-16T11:53:44.641Z",
@@ -2536,7 +2560,13 @@
         "title": "BLB - Hare Raising",
         "id": "Hare Raising",
         "game": "Magic the Gathering",
-        "format": ["Modern", "Vintage", "Standard", "Legacy", "Pioneer"],
+        "format": [
+            "Modern",
+            "Vintage",
+            "Standard",
+            "Legacy",
+            "Pioneer"
+        ],
         "cardCount": 60,
         "createdAt": "2025-04-16T11:52:04.222Z",
         "lastModifiedAt": "2025-04-16T11:52:36.631Z",
@@ -2647,7 +2677,10 @@
         "title": "TDM - Temur Roar",
         "id": "Temur Roar",
         "game": "MTG",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-04-15T16:06:53.553Z",
         "lastModifiedAt": "2025-04-15T16:35:33.098Z",
@@ -3037,7 +3070,10 @@
         "title": "TDM - Abzan Armor",
         "id": "Abzan Armor",
         "game": "MTG",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-04-15T16:06:53.553Z",
         "lastModifiedAt": "2025-04-15T16:34:21.573Z",
@@ -3411,7 +3447,10 @@
         "title": "TDM - Sultai Arisen",
         "id": "Sultai Arisen",
         "game": "MTG",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-04-15T16:06:53.553Z",
         "lastModifiedAt": "2025-04-15T16:33:12.725Z",
@@ -3797,7 +3836,10 @@
         "title": "TDM - Mardu Surge",
         "id": "Mardu Surge",
         "game": "MTG",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-04-15T16:06:53.553Z",
         "lastModifiedAt": "2025-04-15T16:31:58.557Z",
@@ -4186,7 +4228,10 @@
         "title": "TDM - Jeskai Striker",
         "id": "Jeskai Striker",
         "game": "MTG",
-        "format": ["EDH", "Duel Commander"],
+        "format": [
+            "EDH",
+            "Duel Commander"
+        ],
         "cardCount": 100,
         "createdAt": "2025-04-15T16:06:53.553Z",
         "lastModifiedAt": "2025-04-15T16:30:10.281Z",
@@ -4568,6 +4613,1667 @@
                 {
                     "count": 1,
                     "id": "40ed32a6-ad56-48c7-aecf-b4238c34c212"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Chaos",
+        "id": "J25 - Chaos",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Artifact",
+                "Instant",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "23695bc2-86d3-4d78-b374-9e83c4cc9cc4"
+                },
+                {
+                    "count": 1,
+                    "id": "823afa57-faac-4a43-a403-c1bb0446d594"
+                },
+                {
+                    "count": 1,
+                    "id": "8d7933c4-4c74-492f-a9cd-50b339a4b29e"
+                },
+                {
+                    "count": 1,
+                    "id": "3f0c9466-5ab9-4205-a84f-b4b27b5a678e"
+                },
+                {
+                    "count": 1,
+                    "id": "69191459-36ca-4e71-b4bb-0270c4cdaee9"
+                },
+                {
+                    "count": 1,
+                    "id": "a152674f-be29-40ab-8dd9-376fd4eb3bb8"
+                },
+                {
+                    "count": 1,
+                    "id": "06fc3eb1-7a48-42a0-8a5c-d61bd5aacfff"
+                }
+            ],
+            "Artifact": [
+                {
+                    "count": 1,
+                    "id": "539f5396-d99a-417d-a84c-dff7930b5900"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "f014b1a1-20ef-475c-bf83-f1a82e68ab97"
+                },
+                {
+                    "count": 1,
+                    "id": "d291d8f7-bb67-470c-8794-cd553c91e5cc"
+                },
+                {
+                    "count": 1,
+                    "id": "c0f69063-9079-4e7a-98dc-c29da8171d33"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                },
+                {
+                    "count": 1,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                },
+                {
+                    "count": 1,
+                    "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68"
+                },
+                {
+                    "count": 2,
+                    "id": "a3fb7228-e76b-4e96-a40e-20b5fed75685"
+                },
+                {
+                    "count": 2,
+                    "id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6"
+                },
+                {
+                    "count": 1,
+                    "id": "58257464-278e-45fa-8e0b-bcd9a7500bc1"
+                },
+                {
+                    "count": 1,
+                    "id": "1bd3e453-aa21-4ee6-95c2-d6d920ee8e7a"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Giddyap",
+        "id": "J25 - Giddyap",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "0b96cd7a-2132-4ff2-9666-6e2fbd0a2160"
+                },
+                {
+                    "count": 1,
+                    "id": "be030639-cbc9-416b-b0ca-1a76439791d8"
+                },
+                {
+                    "count": 1,
+                    "id": "c823d38c-e73c-4e09-ab20-c5e7de1f1c64"
+                },
+                {
+                    "count": 1,
+                    "id": "32025108-0dba-40bd-88db-5fcc48e3d054"
+                },
+                {
+                    "count": 1,
+                    "id": "3c6913cc-c543-45f8-ad3b-ccd282efa6f7"
+                },
+                {
+                    "count": 1,
+                    "id": "e07b6988-9ee7-4f20-8aa5-7dfa87ff507b"
+                },
+                {
+                    "count": 1,
+                    "id": "67f59250-d46a-4637-9493-165d23278817"
+                },
+                {
+                    "count": 1,
+                    "id": "4f7e7c59-e0a9-4b32-96b9-b1abf52f5ef7"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "7dfe701f-6572-4733-9da5-09397600bba7"
+                },
+                {
+                    "count": 1,
+                    "id": "57579799-2582-417f-9864-4560cac39ac3"
+                },
+                {
+                    "count": 1,
+                    "id": "c3436d70-230c-4bda-b7da-935a270f135f"
+                }
+            ],
+            "Enchantment": [
+                {
+                    "count": 1,
+                    "id": "f28b21a6-f7ce-437a-8c5b-0423cb55cefb"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Prideful",
+        "id": "J25 - Prideful",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Artifact",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "49471b65-be9d-4ded-b2e5-dfc81b306b54"
+                },
+                {
+                    "count": 1,
+                    "id": "6640c234-8863-4670-a61f-ba6f59b60d69"
+                },
+                {
+                    "count": 1,
+                    "id": "92c824da-2351-43bd-9fa0-d09709ad8205"
+                },
+                {
+                    "count": 1,
+                    "id": "99853d2e-2223-4c05-bbd7-0a746f8f810d"
+                },
+                {
+                    "count": 1,
+                    "id": "96d0e4dd-6cc2-4349-ac44-785b50f8dd90"
+                },
+                {
+                    "count": 1,
+                    "id": "3c692dd9-3986-46de-ac10-cc917b7c41b7"
+                },
+                {
+                    "count": 1,
+                    "id": "de1e1352-adb2-4ac1-bb2a-ee654d5c727d"
+                },
+                {
+                    "count": 1,
+                    "id": "60ba93eb-39e6-4af2-9c66-cd38f72daff2"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "102bbedf-9f84-433a-bd01-e1a4c05fbedb"
+                },
+                {
+                    "count": 1,
+                    "id": "e8d0eafe-540a-4b2e-a989-e98ff3c31105"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "5f5e0b10-c8cf-450c-bfd3-bcb0528ec330"
+                }
+            ],
+            "Artifact": [
+                {
+                    "count": 1,
+                    "id": "cde26d69-f3e7-4dd0-a53b-cd0ec812d717"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Angels 1",
+        "id": "J25 - Angels 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Artifact",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "48e6d3d8-2f27-4017-acdd-40bce8cdbc02"
+                },
+                {
+                    "count": 1,
+                    "id": "17d5c53d-7c77-45c2-b8be-7e43c1ecd902"
+                },
+                {
+                    "count": 1,
+                    "id": "81f5c70f-fbb1-4b3a-a048-1f4602adfa0e"
+                },
+                {
+                    "count": 1,
+                    "id": "8331fcd2-b91d-45eb-8361-74aa73e4ff69"
+                },
+                {
+                    "count": 1,
+                    "id": "d646e42b-5635-4798-b633-29c093b66a55"
+                },
+                {
+                    "count": 1,
+                    "id": "4b7ac066-e5c7-43e6-9e7e-2739b24a905d"
+                },
+                {
+                    "count": 1,
+                    "id": "6d37ba4b-ff56-4eec-9dc2-2d7f357dc9c9"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "b75e667a-1ceb-445a-acf4-ae1fd2dae9e7"
+                },
+                {
+                    "count": 1,
+                    "id": "5b6f655b-1518-4ab1-8765-3f549819ef3b"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "5f5e0b10-c8cf-450c-bfd3-bcb0528ec330"
+                }
+            ],
+            "Artifact": [
+                {
+                    "count": 1,
+                    "id": "887de1fc-8fbd-472a-bcf2-4f36ea9376d1"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "8dec6fcf-1254-4b1b-ba23-7a3e492a7241"
+                },
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Heroes 1",
+        "id": "J25 - Heroes 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "f328dfb1-0737-478b-bd40-dfcb9a35e5a5"
+                },
+                {
+                    "count": 1,
+                    "id": "17d5c53d-7c77-45c2-b8be-7e43c1ecd902"
+                },
+                {
+                    "count": 1,
+                    "id": "f4e8be6f-2a1f-47b2-a4d8-7e576e25ab60"
+                },
+                {
+                    "count": 1,
+                    "id": "145a15f9-89a9-4eb7-9924-e768f17e7e68"
+                },
+                {
+                    "count": 1,
+                    "id": "2f810936-2ba6-4c2b-84a0-ff4c1deb026b"
+                },
+                {
+                    "count": 1,
+                    "id": "f922150c-8f79-412b-a611-59064e3e3cea"
+                },
+                {
+                    "count": 1,
+                    "id": "9c46adaa-ab39-4c0a-99bd-935b6c4f732f"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "ce29f71a-6662-4be4-9915-5a4be87288e0"
+                },
+                {
+                    "count": 1,
+                    "id": "f8c2d9c5-6fe6-4698-9972-83cdd625d94b"
+                },
+                {
+                    "count": 1,
+                    "id": "a167d593-cded-43e1-b9bb-2287dbd0cbec"
+                },
+                {
+                    "count": 1,
+                    "id": "1f938353-9081-4dc1-b8e7-d18ece038bd4"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "5acff7a3-bc84-4251-bd37-80231396ac38"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Legion 1",
+        "id": "J25 - Legion 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Artifact",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "38515f89-348b-4cf3-b7bd-1f6fe4ce2fba"
+                },
+                {
+                    "count": 1,
+                    "id": "6640c234-8863-4670-a61f-ba6f59b60d69"
+                },
+                {
+                    "count": 1,
+                    "id": "d812fc6d-b96d-4986-b171-9f3feee603dc"
+                },
+                {
+                    "count": 1,
+                    "id": "b9f4f96b-6e54-4fe6-8df7-623e0fc72409"
+                },
+                {
+                    "count": 1,
+                    "id": "1ca8d2cb-58ba-476b-a4f2-1bf273a54cf3"
+                },
+                {
+                    "count": 1,
+                    "id": "97dfc025-afc2-42d8-a20a-f29d60754a2e"
+                },
+                {
+                    "count": 1,
+                    "id": "8721b0a6-52ff-4749-92db-82bb36f5a73e"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "5b2364d7-a811-4595-a1b4-224c70555ffa"
+                },
+                {
+                    "count": 1,
+                    "id": "dc665ddc-4326-4860-94ba-c40ced8b0af6"
+                },
+                {
+                    "count": 1,
+                    "id": "531f78d5-5004-4b02-99c7-b390cb342fd9"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "5f5e0b10-c8cf-450c-bfd3-bcb0528ec330"
+                }
+            ],
+            "Artifact": [
+                {
+                    "count": 1,
+                    "id": "ab28a801-6ab1-4db2-8ae2-c24bb4c10ebb"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Armed 1",
+        "id": "J25 - Armed 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Artifact",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "17d5c53d-7c77-45c2-b8be-7e43c1ecd902"
+                },
+                {
+                    "count": 1,
+                    "id": "4b6377da-83e7-4519-9582-16a9c16b8faa"
+                },
+                {
+                    "count": 1,
+                    "id": "2f810936-2ba6-4c2b-84a0-ff4c1deb026b"
+                },
+                {
+                    "count": 1,
+                    "id": "01317d6c-8c11-40e1-8f7b-d36050973ada"
+                },
+                {
+                    "count": 1,
+                    "id": "c49db060-2d4b-4dc8-8e54-7606e079c9fe"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "6add505a-9c0f-42e6-898d-be3194c3df33"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "5f5e0b10-c8cf-450c-bfd3-bcb0528ec330"
+                }
+            ],
+            "Artifact": [
+                {
+                    "count": 1,
+                    "id": "ab28a801-6ab1-4db2-8ae2-c24bb4c10ebb"
+                },
+                {
+                    "count": 1,
+                    "id": "881c3dd4-49df-48c3-b514-509990332e25"
+                },
+                {
+                    "count": 1,
+                    "id": "1fd04d9e-cf89-49ba-a932-5d278f65bf77"
+                },
+                {
+                    "count": 1,
+                    "id": "887de1fc-8fbd-472a-bcf2-4f36ea9376d1"
+                },
+                {
+                    "count": 1,
+                    "id": "236c4ff1-8c3f-4763-8df9-925021e65726"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Enchanted 1",
+        "id": "J25 - Enchanted 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Enchantment",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "4c9b8b82-7f61-4dc0-aeac-fba5dc115e91"
+                },
+                {
+                    "count": 1,
+                    "id": "12712419-a2a9-483d-a65a-2b727ae404ae"
+                },
+                {
+                    "count": 1,
+                    "id": "38e0a1d0-2a4c-4510-9610-abea7fa1de7c"
+                },
+                {
+                    "count": 1,
+                    "id": "22005b01-84b1-4d4b-9193-3c561bd422ce"
+                },
+                {
+                    "count": 1,
+                    "id": "5df784c0-3adc-4613-ba30-905ec8cf66f9"
+                },
+                {
+                    "count": 1,
+                    "id": "58805c22-29cc-4ab2-a95c-b1798eb7a90d"
+                },
+                {
+                    "count": 1,
+                    "id": "8f446660-f72a-454f-bc96-3b6dd8633228"
+                },
+                {
+                    "count": 1,
+                    "id": "9c5f0d91-9d86-4e66-94fd-4af93ad01838"
+                }
+            ],
+            "Enchantment": [
+                {
+                    "count": 1,
+                    "id": "f28b21a6-f7ce-437a-8c5b-0423cb55cefb"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "f6475b40-e694-4aac-a25c-bbd48d45127d"
+                },
+                {
+                    "count": 1,
+                    "id": "9c41b4ad-a73f-4274-9b71-9c9834910e05"
+                },
+                {
+                    "count": 1,
+                    "id": "cca60afe-b044-4401-8322-170aa015873c"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Healers 1",
+        "id": "J25 - Healers 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "e4bacf1b-0a45-4c73-857d-dffadb7e6fa5"
+                },
+                {
+                    "count": 1,
+                    "id": "d812fc6d-b96d-4986-b171-9f3feee603dc"
+                },
+                {
+                    "count": 1,
+                    "id": "1fc1b0d7-7f15-4d00-bc8f-e06489afd425"
+                },
+                {
+                    "count": 1,
+                    "id": "95e94dea-5ac0-4d6f-adec-ca147aee861f"
+                },
+                {
+                    "count": 1,
+                    "id": "a2daaf32-dbfe-4618-892e-0da24f63a44a"
+                },
+                {
+                    "count": 1,
+                    "id": "635fe908-6f58-4c9e-ac55-0775a7c6f278"
+                },
+                {
+                    "count": 1,
+                    "id": "32025108-0dba-40bd-88db-5fcc48e3d054"
+                },
+                {
+                    "count": 1,
+                    "id": "5101ff9e-4680-4d38-80a5-b4c21bc67356"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "87644a09-241a-44e5-99f2-16fc9a7d8b93"
+                },
+                {
+                    "count": 1,
+                    "id": "6add505a-9c0f-42e6-898d-be3194c3df33"
+                },
+                {
+                    "count": 1,
+                    "id": "b1385b03-cb4b-4812-857f-7421f1df39af"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "2b2d76f5-4c9b-49dc-b202-68095e2d9b29"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "b3dbb16f-fa8f-4406-bcf3-e647e4337619"
+                },
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 6,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Stalwart 1",
+        "id": "J25 - Stalwart 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Planeswalker",
+                "Creature",
+                "Instant",
+                "Enchantment",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Planeswalker": [
+                {
+                    "count": 1,
+                    "id": "b25bea73-7444-4ee2-8022-611461506117"
+                }
+            ],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "9ee0d4a0-fd8d-43c4-a2aa-c4e6af5beecc"
+                },
+                {
+                    "count": 1,
+                    "id": "adc1f850-9217-4a90-8e6a-02ed226ef8df"
+                },
+                {
+                    "count": 1,
+                    "id": "c8c110db-4d98-4087-a3b0-c7fe88b5e38a"
+                },
+                {
+                    "count": 1,
+                    "id": "a0ee4faa-1ab0-4b4f-a564-ee2358500daf"
+                },
+                {
+                    "count": 1,
+                    "id": "4d36ea21-e8cb-442d-ba3f-c399289ac208"
+                },
+                {
+                    "count": 1,
+                    "id": "fccd17b1-ca0f-4649-a002-5cbf9666b510"
+                },
+                {
+                    "count": 1,
+                    "id": "865812c2-1838-4015-bf0d-990af76f7000"
+                },
+                {
+                    "count": 1,
+                    "id": "e0f676ab-f859-4d4f-abe0-d033ffd3c396"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "5820d760-8ed7-4abf-a959-c06ed86a3730"
+                },
+                {
+                    "count": 1,
+                    "id": "e8d0eafe-540a-4b2e-a989-e98ff3c31105"
+                }
+            ],
+            "Enchantment": [
+                {
+                    "count": 1,
+                    "id": "f28b21a6-f7ce-437a-8c5b-0423cb55cefb"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 7,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Illusions",
+        "id": "J25 - Illusions",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "2f200a14-7e5b-4b7c-a283-5cf9abb1f95d"
+                },
+                {
+                    "count": 1,
+                    "id": "cc60181a-5eeb-4d66-9876-3194bac1e7a7"
+                },
+                {
+                    "count": 1,
+                    "id": "8e514bc9-7c8c-4257-9dbc-19a78f61df05"
+                },
+                {
+                    "count": 1,
+                    "id": "dcd4da46-5438-4454-8b1b-43ca51bda1f9"
+                },
+                {
+                    "count": 1,
+                    "id": "ed416ae3-9291-4e1e-ad83-2f14138e9e47"
+                },
+                {
+                    "count": 1,
+                    "id": "6cae42b6-8b09-4188-8e79-203eebc77585"
+                },
+                {
+                    "count": 1,
+                    "id": "48c97aeb-6591-4175-a24b-d3488bf3ab0b"
+                },
+                {
+                    "count": 1,
+                    "id": "e7a13f43-1171-4808-9964-c5ad424027cb"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "713332c1-5bd8-400f-bfff-c1ca0697a043"
+                },
+                {
+                    "count": 1,
+                    "id": "d21facb6-27c2-49cb-9f13-7d6079096eda"
+                },
+                {
+                    "count": 1,
+                    "id": "75325029-e6f1-44af-88b2-53cc2b7233c0"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "f0691d46-5bf4-4617-8a0a-19d17afb7219"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 7,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Ninjas",
+        "id": "J25 - Ninjas",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "3d3eb043-8ce6-461a-b8bc-67f0ba6cd580"
+                },
+                {
+                    "count": 1,
+                    "id": "1f3c2b00-0000-4ae1-9650-9553accac52e"
+                },
+                {
+                    "count": 1,
+                    "id": "7cd8b017-8d59-4b55-bb9a-8d8e492ef1ac"
+                },
+                {
+                    "count": 1,
+                    "id": "ba858b68-ae93-4e1c-8a3a-3e4ac97282e8"
+                },
+                {
+                    "count": 1,
+                    "id": "0d64d150-1716-4da4-9cfe-ee7749b89918"
+                },
+                {
+                    "count": 1,
+                    "id": "8ac23863-0aa7-41bc-b9b7-c5f0566172cf"
+                },
+                {
+                    "count": 1,
+                    "id": "e7a13f43-1171-4808-9964-c5ad424027cb"
+                },
+                {
+                    "count": 1,
+                    "id": "6d03971a-8365-449a-8fbe-07b5b9bb42dc"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "64883ef2-c536-42e2-b52f-cfd1984fcdfd"
+                },
+                {
+                    "count": 1,
+                    "id": "ba9e129d-a3cf-431c-93af-f2e4902d40a0"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "f0691d46-5bf4-4617-8a0a-19d17afb7219"
+                },
+                {
+                    "count": 1,
+                    "id": "a621c5f6-c1c6-4bc9-88b1-f459efa07a39"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 7,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Drowned 1",
+        "id": "J25 - Drowned 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Sorcery",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "b015ec84-95b9-4010-afef-d9d0cacb98dd"
+                },
+                {
+                    "count": 1,
+                    "id": "6f6cbcd4-7a4b-4a38-bf29-995e82e658ce"
+                },
+                {
+                    "count": 1,
+                    "id": "bb244878-6440-4dfe-b96b-c9e18d0abe45"
+                },
+                {
+                    "count": 1,
+                    "id": "a6f0dcbc-ca45-4ae8-961e-e42ef8d8a975"
+                },
+                {
+                    "count": 1,
+                    "id": "5ea5d171-a7b8-4269-9405-d2f4ccf0cbcb"
+                },
+                {
+                    "count": 1,
+                    "id": "dc3073fc-dc23-426e-b867-fee5dd99fe25"
+                },
+                {
+                    "count": 1,
+                    "id": "10fd868f-45b3-4e2f-89d9-5c0b8a92f9fe"
+                },
+                {
+                    "count": 1,
+                    "id": "49b80368-d38a-4877-b1de-f3b5f3d40d4d"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "8e0b605f-2095-4189-8c71-9d1ac93db42e"
+                }
+            ],
+            "Sorcery": [
+                {
+                    "count": 1,
+                    "id": "579cbd92-797f-4cdf-91ed-fca7a523eae5"
+                },
+                {
+                    "count": 1,
+                    "id": "c41641f0-1abf-4776-9dec-1882f2d9badd"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "035f0aae-9c23-4b22-8c87-0d66b84b7962"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "c17d799f-adc9-4c41-87cf-b243b5ea3be1"
+                },
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 6,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Of the Coast 1",
+        "id": "J25 - Of the Coast 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Enchantment",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "1c95b7cf-be4d-4961-9073-3e39487492c8"
+                },
+                {
+                    "count": 1,
+                    "id": "093f6123-6b1d-456f-a526-8740bc969b4e"
+                },
+                {
+                    "count": 1,
+                    "id": "b9b205db-068e-44c7-9169-5d8f13d4b73a"
+                },
+                {
+                    "count": 1,
+                    "id": "df4569d7-ee75-4ba0-bbc3-7766ac686523"
+                },
+                {
+                    "count": 1,
+                    "id": "6c8f4d50-c8a6-4ee7-bef2-d91fb595c384"
+                },
+                {
+                    "count": 1,
+                    "id": "94a4f70a-8aac-412a-99f0-933e3ff87fe0"
+                },
+                {
+                    "count": 1,
+                    "id": "ac2668a3-7a26-47b1-9ad4-56e23643de80"
+                },
+                {
+                    "count": 1,
+                    "id": "30868d69-2ba3-4373-9d47-4bc8978f35d1"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "705cc928-d6d4-4294-979b-a385d1b07dc6"
+                },
+                {
+                    "count": 1,
+                    "id": "9b3bcd57-bf3f-4d72-810a-fdb5c8ea1551"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "f0691d46-5bf4-4617-8a0a-19d17afb7219"
+                }
+            ],
+            "Enchantment": [
+                {
+                    "count": 1,
+                    "id": "41960d32-ddb5-42be-94b2-3a2e77ca148d"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "765863c8-1be0-4bb1-9e9c-db7701cffde3"
+                },
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 6,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Wizards 1",
+        "id": "J25 - Wizards 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Sorcery",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "cffb9b7f-d52c-43e0-a4a6-b06dea83eb53"
+                },
+                {
+                    "count": 1,
+                    "id": "b2e65e8b-5f08-4cc2-ab1d-00f8903dbea2"
+                },
+                {
+                    "count": 1,
+                    "id": "b400700c-1d82-4721-a166-56f88ba6ad19"
+                },
+                {
+                    "count": 1,
+                    "id": "a91a3266-cadd-47a0-9b20-160307f14c07"
+                },
+                {
+                    "count": 1,
+                    "id": "be5d6779-ecc9-44b9-8c4d-97a243059d55"
+                },
+                {
+                    "count": 1,
+                    "id": "09bd4e1c-9861-481f-80dc-4de955c8d3af"
+                },
+                {
+                    "count": 1,
+                    "id": "fd28fe55-36cd-4242-8dd4-edb58fbb9895"
+                },
+                {
+                    "count": 1,
+                    "id": "1da1aa95-b587-4bc3-8bc1-7daa1fc33f00"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "a60348fa-b182-4667-9e38-15bdf3511f82"
+                },
+                {
+                    "count": 1,
+                    "id": "d71cd08e-3e84-41ff-b9db-9e343c0af6b4"
+                }
+            ],
+            "Sorcery": [
+                {
+                    "count": 1,
+                    "id": "a3d287ec-1a39-4f91-acf1-7c1d2c00ed89"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "f0691d46-5bf4-4617-8a0a-19d17afb7219"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 7,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Bookworms 1",
+        "id": "J25 - Bookworms 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Sorcery",
+                "Enchantment - Aura",
+                "Enchantment",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "8f6a3dcf-32e0-48c7-9265-0e298df4a5e4"
+                },
+                {
+                    "count": 1,
+                    "id": "b872f147-00eb-4cf8-af8c-4144356b2089"
+                },
+                {
+                    "count": 1,
+                    "id": "0d5a1870-6d26-47e7-a86c-f3ff15cb0707"
+                },
+                {
+                    "count": 1,
+                    "id": "645b5784-a6f7-4cf3-966a-e1a51420b96b"
+                },
+                {
+                    "count": 1,
+                    "id": "604aded2-64c2-4474-b5b7-8c83e0e3fe76"
+                },
+                {
+                    "count": 1,
+                    "id": "9625773b-1976-49b3-88d2-93a4befb595c"
+                },
+                {
+                    "count": 1,
+                    "id": "c90ea9d5-82f7-4b92-8cb1-10d0a7378e8c"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "51acd176-e84d-42c2-acb2-cceeb28a9fec"
+                }
+            ],
+            "Sorcery": [
+                {
+                    "count": 1,
+                    "id": "ff03a063-9634-4746-a208-9dbcde5c6bdb"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "488696c2-b0c7-49be-a5a1-e833b6fd8751"
+                },
+                {
+                    "count": 1,
+                    "id": "f0691d46-5bf4-4617-8a0a-19d17afb7219"
+                }
+            ],
+            "Enchantment": [
+                {
+                    "count": 1,
+                    "id": "6155908a-0079-42c7-ae81-326a6faccb89"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 7,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Inventive 1",
+        "id": "J25 - Inventive 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Artifact",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "52241b9c-7a69-4176-9234-8bdab09d8e64"
+                },
+                {
+                    "count": 1,
+                    "id": "093f6123-6b1d-456f-a526-8740bc969b4e"
+                },
+                {
+                    "count": 1,
+                    "id": "3a940dfa-a026-4969-8981-ef90cdfbe9ef"
+                },
+                {
+                    "count": 1,
+                    "id": "47f221a4-b51a-46b9-a4fc-46bc8ec7ddd3"
+                },
+                {
+                    "count": 1,
+                    "id": "ab7c9e72-8f30-47f7-918c-cd3c0593d704"
+                },
+                {
+                    "count": 1,
+                    "id": "fdbd8a95-1dc8-4df2-bab0-a93d1941a405"
+                },
+                {
+                    "count": 1,
+                    "id": "4fdfa41a-75a5-4b36-8c9e-083e26d137e2"
+                },
+                {
+                    "count": 1,
+                    "id": "39363190-7f79-4fae-bcfc-b17ec4e07bfe"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "51acd176-e84d-42c2-acb2-cceeb28a9fec"
+                },
+                {
+                    "count": 1,
+                    "id": "d5e67016-1740-42f8-8be2-9eb9d4adb142"
+                }
+            ],
+            "Artifact": [
+                {
+                    "count": 1,
+                    "id": "134a9877-5cfb-4a2a-a0f0-930dce45f58b"
+                },
+                {
+                    "count": 1,
+                    "id": "bdf28770-0962-4317-822f-c187bc6706d1"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "39451b4d-cd7a-40da-b457-cb51b609173f"
+                },
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 6,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Soaring 1",
+        "id": "J25 - Soaring 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Sorcery",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "5e038a3a-fbab-46c2-8773-1327d953da16"
+                },
+                {
+                    "count": 1,
+                    "id": "8170ddd6-c054-4851-bdc2-4d319b60ba41"
+                },
+                {
+                    "count": 1,
+                    "id": "b56c0846-e465-4251-93ea-2e3e7be8dffc"
+                },
+                {
+                    "count": 1,
+                    "id": "8ac23863-0aa7-41bc-b9b7-c5f0566172cf"
+                },
+                {
+                    "count": 1,
+                    "id": "8d83dfb3-5662-4109-b465-bf5f257e58a5"
+                },
+                {
+                    "count": 1,
+                    "id": "f424b5e9-8f02-4491-a7d8-c7e088611c6a"
+                },
+                {
+                    "count": 1,
+                    "id": "64e0c580-0e55-4f42-8594-11ccb584d633"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "822b6d56-939a-42b9-b50c-9a8ba50ec3ad"
+                },
+                {
+                    "count": 1,
+                    "id": "d6596336-8177-4475-95b9-a21858563276"
+                }
+            ],
+            "Sorcery": [
+                {
+                    "count": 1,
+                    "id": "7cfc14ce-9940-4c61-9daa-2c6dbf1a80ad"
+                },
+                {
+                    "count": 1,
+                    "id": "c623aeb1-e6d4-48fe-bd2a-a7a6729aa4df"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "f0691d46-5bf4-4617-8a0a-19d17afb7219"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 7,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                }
+            ]
+        }
+    },
+    {
+        "title": "J25 - Surprise! 1",
+        "id": "J25 - Surprise! 1",
+        "game": "Magic the Gathering - Test",
+        "format": [
+            "Jumpstart"
+        ],
+        "cardCount": 20,
+        "createdAt": "2025-12-15T16:59:37.827Z",
+        "lastModifiedAt": "2025-12-15T16:59:37.827Z",
+        "deckList": {
+            "categoriesOrder": [
+                "Creature",
+                "Instant",
+                "Enchantment - Aura",
+                "Land"
+            ],
+            "Sideboard": [],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "20004398-bd04-4583-8378-9df743246a32"
+                },
+                {
+                    "count": 1,
+                    "id": "916cb70f-3b06-48ed-972d-75f805aa0892"
+                },
+                {
+                    "count": 1,
+                    "id": "6d16c2fa-4118-4b81-92ca-6c8e9efe03b6"
+                },
+                {
+                    "count": 1,
+                    "id": "baddf7ee-f6b9-41e3-b930-57129952cc1d"
+                },
+                {
+                    "count": 1,
+                    "id": "a8fdbcdf-479d-4582-9ad5-9fbd4c740c29"
+                },
+                {
+                    "count": 1,
+                    "id": "ffd6c4b8-928d-40f1-9549-d13fa0b3af82"
+                },
+                {
+                    "count": 1,
+                    "id": "ff12dfee-7140-44bd-a62e-5f8ab98e93c6"
+                },
+                {
+                    "count": 1,
+                    "id": "9d57cda6-9042-44bd-9785-38de9487ff85"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "705cc928-d6d4-4294-979b-a385d1b07dc6"
+                },
+                {
+                    "count": 1,
+                    "id": "713332c1-5bd8-400f-bfff-c1ca0697a043"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "2dc59566-10cb-468a-b6a2-17d6c0186e6d"
+                },
+                {
+                    "count": 1,
+                    "id": "87aa2cbe-841c-40ff-9b1c-b259b4cc631e"
+                }
+            ],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 7,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
                 }
             ]
         }

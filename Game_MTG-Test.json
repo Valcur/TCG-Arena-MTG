@@ -53,10 +53,7 @@
                 "general": {
                     "min": 100,
                     "max": 100,
-                    "maxPerCard": {
-                        "default": 1,
-                        "Land": 999
-                    }
+                    "maxPerCard": 1
                 },
                 "categories": [
                     {

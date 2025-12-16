@@ -49,7 +49,7 @@
             },
             {
                 "title": "Jumpstart",
-                "gameplay": "Classic",
+                "gameplay": "Jumpstart",
                 "deckRuleset": "Classic"
             }
         ],
@@ -356,6 +356,115 @@
                 "startingHandSize": 7,
                 "drawNewHand": true,
                 "putSelectionAtBottom": true
+            },
+            "newTurn": {
+                "drawOnStart": false,
+                "sharedTurn": false
+            },
+            "countersStartingValues": [20, 0],
+            "draggableTokens": [
+                {
+                    "id": "Orange",
+                    "name": "Orange token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Orange.png"
+                },
+                {
+                    "id": "Green",
+                    "name": "Green token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Green.png"
+                },
+                {
+                    "id": "Blue",
+                    "name": "Blue token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Blue.png"
+                },
+                {
+                    "id": "Purple",
+                    "name": "Purple token",
+                    "image": "https://valcur.github.io/TCG-Arena-MTG/Images/Tokens/Purple.png"
+                }
+            ],
+            "sections": {
+                "customSections": ["Creatures", "Mana", "Other"],
+                "layout": {
+                    "direction": "column",
+                    "content": [
+                        {
+                            "section": "Creatures"
+                        },
+                        {
+                            "direction": "row",
+                            "content": [
+                                {
+                                    "section": "Mana"
+                                },
+                                {
+                                    "section": "Other"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "autoPlayFromHand": {
+                    "Creature": "Creatures",
+                    "Artifact": "Other",
+                    "Enchantment": "Other",
+                    "Sorcery": "Stack",
+                    "Instant": "Stack",
+                    "Land": "Mana",
+                    "Planeswalker": "Other",
+                    "Battle": "Other",
+                    "Enchantment - Aura": "GROUP",
+                    "Emblem": "Other",
+                    "Card": "Other"
+                },
+                "autoPlayFromStack": {
+                    "Creature": "Creatures",
+                    "Artifact": "Other",
+                    "Enchantment": "Other",
+                    "Sorcery": "Discard",
+                    "Instant": "Discard",
+                    "Land": "Mana",
+                    "Planeswalker": "Other",
+                    "Battle": "Other",
+                    "Enchantment - Aura": "GROUP",
+                    "Emblem": "Other",
+                    "Card": "Other"
+                },
+                "sectionsDict": {
+                    "Creatures": {
+                        "title": "Creatures",
+                        "isHidden": "no",
+                        "height": "MEDIUM",
+                        "alignment": "CENTER",
+                        "isHorizontalAllowed": true
+                    },
+                    "Mana": {
+                        "title": "Mana",
+                        "isHidden": "no",
+                        "height": "SMALL",
+                        "alignment": "START",
+                        "isHorizontalAllowed": false
+                    },
+                    "Other": {
+                        "title": "Other",
+                        "isHidden": "no",
+                        "height": "SMALL",
+                        "alignment": "END",
+                        "isHorizontalAllowed": true
+                    }
+                }
+            }
+        },
+        "Jumpstart": {
+            "mulligan": {
+                "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed (click those cards).",
+                "startingHandSize": 7,
+                "drawNewHand": true,
+                "putSelectionAtBottom": true
+            },
+            "beforeGameStart": {
+                "decksToPick": 2
             },
             "newTurn": {
                 "drawOnStart": false,

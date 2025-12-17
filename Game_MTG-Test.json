@@ -87,13 +87,13 @@
             "tokens": [
                 {
                     "name": "Monarch",
-                    "image": "https://i.imgur.com/qqAlWZI.png",
+                    "image": "https://cdn.imgchest.com/files/d21686bb0250.png",
                     "isUnique": true,
                     "leavesAtEndOfTurn": false
                 },
                 {
                     "name": "Initiative",
-                    "image": "https://i.imgur.com/kPxTEX8.png",
+                    "image": "https://cdn.imgchest.com/files/1a36d2122091.png",
                     "isUnique": true,
                     "leavesAtEndOfTurn": false
                 }
@@ -226,13 +226,13 @@
             "tokens": [
                 {
                     "name": "Monarch",
-                    "image": "https://i.imgur.com/qqAlWZI.png",
+                    "image": "https://cdn.imgchest.com/files/d21686bb0250.png",
                     "isUnique": true,
                     "leavesAtEndOfTurn": false
                 },
                 {
                     "name": "Initiative",
-                    "image": "https://i.imgur.com/kPxTEX8.png",
+                    "image": "https://cdn.imgchest.com/files/1a36d2122091.png",
                     "isUnique": true,
                     "leavesAtEndOfTurn": false
                 }
@@ -569,14 +569,14 @@
     "defaultRessources": {
         "backgrounds": [
             "https://i.ibb.co/ZzKYNswJ/z-V2lc-ZW-Imgur.jpg",
-            "https://i.imgur.com/lJdO0uy.jpeg",
-            "https://i.imgur.com/2TjUNMF.jpeg",
-            "https://i.imgur.com/Poao2W2.jpeg",
-            "https://i.imgur.com/0K1Jj33.jpeg",
-            "https://i.imgur.com/G8ceHWa.jpeg",
-            "https://i.imgur.com/BiCECcO.jpeg",
-            "https://i.imgur.com/AAMW7sU.jpeg",
-            "https://i.imgur.com/HjVTFec.jpeg"
+            "https://cdn.imgchest.com/files/a8d13f7db74f.jpeg",
+            "https://cdn.imgchest.com/files/7a25910deab5.jpeg",
+            "https://cdn.imgchest.com/files/e1877d36db68.jpeg",
+            "https://cdn.imgchest.com/files/41d419bedd0b.jpeg",
+            "https://cdn.imgchest.com/files/0959bcceaf01.jpeg",
+            "https://cdn.imgchest.com/files/6aff77db6dbd.jpeg",
+            "https://cdn.imgchest.com/files/197d2805c940.jpeg",
+            "https://cdn.imgchest.com/files/911b1558c5ea.jpeg"
         ],
         "decksUrl": "https://valcur.github.io/TCG-Arena-MTG/MTGDecks-Test.json"
     },

@@ -72,7 +72,7 @@
                 "general": {
                     "min": 60,
                     "maxPerCard": 4
-                },
+                }
             }
         }
     },

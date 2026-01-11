@@ -9,37 +9,37 @@
                 "title": "EDH",
                 "customCategories": ["Commander"],
                 "gameplay": "EDH",
-                "compatibility": "EDH"
+                "deckRuleset": "EDH"
             },
             {
                 "title": "Modern",
                 "gameplay": "Classic",
-                "compatibility": "Classic"
+                "deckRuleset": "Classic"
             },
             {
                 "title": "Vintage",
                 "gameplay": "Classic",
-                "compatibility": "Classic"
+                "deckRuleset": "Classic"
             },
             {
                 "title": "Standard",
                 "gameplay": "Classic",
-                "compatibility": "Classic"
+                "deckRuleset": "Classic"
             },
             {
                 "title": "Pauper",
                 "gameplay": "Classic",
-                "compatibility": "Classic"
+                "deckRuleset": "Classic"
             },
             {
                 "title": "Legacy",
                 "gameplay": "Classic",
-                "compatibility": "Classic"
+                "deckRuleset": "Classic"
             },
             {
                 "title": "Pioneer",
                 "gameplay": "Classic",
-                "compatibility": "Classic"
+                "deckRuleset": "Classic"
             },
             {
                 "title": "Duel Commander",
@@ -67,6 +67,12 @@
                         "max": 2
                     }
                 ]
+            },
+            "Classic": {
+                "general": {
+                    "min": 60,
+                    "maxPerCard": 4
+                },
             }
         }
     },

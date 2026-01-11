@@ -4,397 +4,397 @@
         "id": "ECL - Dance of the Elements",
         "game": "Magic the Gathering",
         "format": [
-          "EDH"
+            "EDH"
         ],
         "cardCount": 100,
         "createdAt": "2026-01-11T11:38:25.623Z",
         "lastModifiedAt": "2026-01-11T11:38:39.247Z",
         "deckList": {
-          "categoriesOrder": [
-            "Commander",
-            "Land",
-            "Enchantment - Aura",
-            "Artifact",
-            "Creature",
-            "Sorcery",
-            "Enchantment",
-            "Instant"
-          ],
-          "Sideboard": [],
-          "Land": [
-            {
-              "count": 1,
-              "id": "e3eb6f90-ccfc-41e7-bff6-0b378226bc7e"
-            },
-            {
-              "count": 1,
-              "id": "0baabe39-72ae-47bd-a095-cbf7eb8a6361"
-            },
-            {
-              "count": 1,
-              "id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25"
-            },
-            {
-              "count": 1,
-              "id": "27b047e3-0d41-45e2-98e9-9391d7923a1e"
-            },
-            {
-              "count": 1,
-              "id": "34a1eb04-08f6-49d8-a1d1-b987a76bd8b1"
-            },
-            {
-              "count": 8,
-              "id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6"
-            },
-            {
-              "count": 1,
-              "id": "e4cf6c2f-0f1e-4980-9ef9-e4eabcae42a9"
-            },
-            {
-              "count": 2,
-              "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
-            },
-            {
-              "count": 1,
-              "id": "2e69537c-c898-4e13-a72d-ce3957a90304"
-            },
-            {
-              "count": 2,
-              "id": "a3fb7228-e76b-4e96-a40e-20b5fed75685"
-            },
-            {
-              "count": 1,
-              "id": "aa6723a2-75da-49f5-a1ba-cbfa82c55301"
-            },
-            {
-              "count": 1,
-              "id": "f9e7e855-1e3b-42d3-91b0-64ba8b5b8982"
-            },
-            {
-              "count": 1,
-              "id": "b473e293-59e3-4e04-acf2-622604aeb25f"
-            },
-            {
-              "count": 2,
-              "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
-            },
-            {
-              "count": 1,
-              "id": "541744d9-449d-420a-a5a1-2fffba18450f"
-            },
-            {
-              "count": 1,
-              "id": "8d38194e-b607-4ff4-9c19-0e8636d463bf"
-            },
-            {
-              "count": 1,
-              "id": "633a41f0-3889-49a0-b2fc-9baf59f4ddc2"
-            },
-            {
-              "count": 1,
-              "id": "544dbabd-cbfc-40da-a5ba-2fea9cddb453"
-            },
-            {
-              "count": 1,
-              "id": "a3292406-3f49-42d6-a547-e43dd5797f84"
-            },
-            {
-              "count": 1,
-              "id": "2ae77795-6a80-498b-bf69-6fd612f601e4"
-            },
-            {
-              "count": 1,
-              "id": "79ba18fd-f184-43c1-86df-56ee18ce806c"
-            },
-            {
-              "count": 1,
-              "id": "0070db93-142b-4d04-afd3-836792dc134b"
-            },
-            {
-              "count": 2,
-              "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68"
-            },
-            {
-              "count": 1,
-              "id": "91fceb34-0f2d-4392-be27-00dcd765637f"
-            },
-            {
-              "count": 1,
-              "id": "a8052556-8962-4130-86a8-6fb7b6a324f7"
-            },
-            {
-              "count": 1,
-              "id": "d1946630-e224-40db-8f0d-388b09622288"
-            },
-            {
-              "count": 1,
-              "id": "69fc70b8-b143-4662-ac95-e2743037239d"
-            },
-            {
-              "count": 1,
-              "id": "bff416bb-d193-4c45-b2c1-7c297dbfad08"
-            },
-            {
-              "count": 1,
-              "id": "584b15f2-6ae9-413a-8b8d-9244dbea4878"
-            }
-          ],
-          "Enchantment - Aura": [
-            {
-              "count": 1,
-              "id": "947a2665-2f4d-4193-8768-118f85334549"
-            },
-            {
-              "count": 1,
-              "id": "cf14d4e5-5965-45ad-97f7-26facf2884b5"
-            }
-          ],
-          "Artifact": [
-            {
-              "count": 1,
-              "id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838"
-            },
-            {
-              "count": 1,
-              "id": "539f5396-d99a-417d-a84c-dff7930b5900"
-            },
-            {
-              "count": 1,
-              "id": "95560508-7ac9-4be9-8a3f-3c7d5b52807b"
-            },
-            {
-              "count": 1,
-              "id": "6ad8011d-3471-4369-9d68-b264cc027487"
-            },
-            {
-              "count": 1,
-              "id": "fec77e0a-433e-4d32-9260-e26a37f6ad23"
-            }
-          ],
-          "Creature": [
-            {
-              "count": 1,
-              "id": "4ba5b3f6-503b-43e6-b66e-4f8c55cffed7"
-            },
-            {
-              "count": 1,
-              "id": "51f9a6cc-8eb2-44ed-a2d9-913ac514ad67"
-            },
-            {
-              "count": 1,
-              "id": "0ec88e35-191b-411b-9eb0-2dfef7ae4174"
-            },
-            {
-              "count": 1,
-              "id": "96b909ab-55f1-4cde-a675-2504de3da772"
-            },
-            {
-              "count": 1,
-              "id": "48c641df-d511-4e35-b623-9d1fdb5240da"
-            },
-            {
-              "count": 1,
-              "id": "c85d824b-c190-4d04-ab99-918ad0e6516c"
-            },
-            {
-              "count": 1,
-              "id": "70a6f08e-854d-4e2f-9d8c-c45ec3231157"
-            },
-            {
-              "count": 1,
-              "id": "c552bd73-ce75-40fd-9d80-9e90b6f45274"
-            },
-            {
-              "count": 1,
-              "id": "8b7a3613-f1bd-4262-9b11-b631167c2c2d"
-            },
-            {
-              "count": 1,
-              "id": "fbf9f8c5-849f-45d5-8129-5fc683c21a04"
-            },
-            {
-              "count": 1,
-              "id": "2facb1b3-4522-4610-a0ab-29ac53ca7fcd"
-            },
-            {
-              "count": 1,
-              "id": "a7656948-4d7d-47f7-b8a1-fc9716155e37"
-            },
-            {
-              "count": 1,
-              "id": "02b6900b-219f-4832-8f93-6ef27ee76c0c"
-            },
-            {
-              "count": 1,
-              "id": "934bd9f9-937b-4c6b-a849-012ae6bd3321"
-            },
-            {
-              "count": 1,
-              "id": "127795e6-3f0e-4318-95ad-ccb1912580ac"
-            },
-            {
-              "count": 1,
-              "id": "f0587c55-06c1-4930-a62e-668f37464ce9"
-            },
-            {
-              "count": 1,
-              "id": "2cf04076-adc4-4831-a3b8-9120d516f204"
-            },
-            {
-              "count": 1,
-              "id": "88e43e62-8bce-41b3-ac2d-47043fcc7077"
-            },
-            {
-              "count": 1,
-              "id": "ad9b7fbc-61c8-43ee-a65c-99206fd1e4df"
-            },
-            {
-              "count": 1,
-              "id": "3ceffadd-c32d-4508-b307-e03bf3c8e7b8"
-            },
-            {
-              "count": 1,
-              "id": "e4625704-1d52-44e4-804f-2f45644d76ac"
-            },
-            {
-              "count": 1,
-              "id": "24d0f5e7-0d9e-4b76-900e-a7274e80312d"
-            },
-            {
-              "count": 1,
-              "id": "1816eede-c5bd-49df-958f-a3af64cb2932"
-            },
-            {
-              "count": 1,
-              "id": "ffd34151-457a-4a93-82db-24b18319a06b"
-            },
-            {
-              "count": 1,
-              "id": "b81eaa2f-0554-41c6-bdf6-d1cb73b8f56f"
-            },
-            {
-              "count": 1,
-              "id": "2ae71e86-4400-4a30-9077-4d57a43e7395"
-            },
-            {
-              "count": 1,
-              "id": "1d725121-e50c-42f0-9128-56802f07c89e"
-            },
-            {
-              "count": 1,
-              "id": "52244c23-7680-4bed-8ef8-8d10e289d3f7"
-            },
-            {
-              "count": 1,
-              "id": "717bbb9d-0a5b-4979-a24b-9d54aac7657a"
-            },
-            {
-              "count": 1,
-              "id": "4b6512aa-535e-4edf-8797-43df2b8463de"
-            },
-            {
-              "count": 1,
-              "id": "e970f2df-90cb-45b8-8ae5-71b762908925"
-            },
-            {
-              "count": 1,
-              "id": "687cfdf7-8f35-464a-8d6e-9f2d769ed6b4"
-            },
-            {
-              "count": 1,
-              "id": "5d8acafe-c13e-43ca-a89e-0cfd12d95662"
-            },
-            {
-              "count": 1,
-              "id": "bf30b8ae-0125-4a00-bae8-ac1aa7703a08"
-            },
-            {
-              "count": 1,
-              "id": "95b53836-18aa-451a-992d-2a111deeeab2"
-            }
-          ],
-          "Sorcery": [
-            {
-              "count": 1,
-              "id": "7a2484a9-04fd-41a0-8224-610c1c07ed10"
-            },
-            {
-              "count": 1,
-              "id": "8b755881-a72d-4e21-a369-d2924eb4585a"
-            },
-            {
-              "count": 1,
-              "id": "ac6c5852-71c7-4f19-8c87-ccb345052862"
-            },
-            {
-              "count": 1,
-              "id": "dd963396-3f81-49ad-a68e-87b9764d7ac5"
-            },
-            {
-              "count": 1,
-              "id": "334c284e-7bc3-4c18-9f8d-4d846f80008e"
-            },
-            {
-              "count": 1,
-              "id": "1593ea18-2f2f-4ab4-83fb-6ccc0bec8a90"
-            },
-            {
-              "count": 1,
-              "id": "2ffc7509-c7ce-44c4-a8cf-90ed161b5d10"
-            }
-          ],
-          "Enchantment": [
-            {
-              "count": 1,
-              "id": "b61a87e3-dc98-4db9-abed-b47b677d81ab"
-            },
-            {
-              "count": 1,
-              "id": "97079964-7a2e-42c5-ad4a-9015c18a1e97"
-            },
-            {
-              "count": 1,
-              "id": "3127ae9b-a7a7-43ec-89d7-688f8445b33d"
-            },
-            {
-              "count": 1,
-              "id": "17739f55-486b-46ea-8785-70cc2bd2d872"
-            },
-            {
-              "count": 1,
-              "id": "b1305916-53cc-4021-897e-bbefc65dce78"
-            }
-          ],
-          "Instant": [
-            {
-              "count": 1,
-              "id": "2987c385-011a-4032-a516-a46d1e9dc9e8"
-            },
-            {
-              "count": 1,
-              "id": "b488e75f-af9c-43e2-8aca-f269fa2c720e"
-            },
-            {
-              "count": 1,
-              "id": "d683d985-9888-4d21-8b5f-69e69ce4a03b"
-            },
-            {
-              "count": 1,
-              "id": "70dc830e-d05b-4fc7-88dd-879e140b3fbf"
-            },
-            {
-              "count": 1,
-              "id": "2b76f9e9-cd28-4eaf-8674-215c34263f96"
-            }
-          ],
-          "Commander": [
-            {
-              "count": 1,
-              "id": "77a9e7cf-76e9-4323-8504-a5b831de00be"
-            }
-          ]
+            "categoriesOrder": [
+                "Commander",
+                "Land",
+                "Enchantment - Aura",
+                "Artifact",
+                "Creature",
+                "Sorcery",
+                "Enchantment",
+                "Instant"
+            ],
+            "Sideboard": [],
+            "Land": [
+                {
+                    "count": 1,
+                    "id": "e3eb6f90-ccfc-41e7-bff6-0b378226bc7e"
+                },
+                {
+                    "count": 1,
+                    "id": "0baabe39-72ae-47bd-a095-cbf7eb8a6361"
+                },
+                {
+                    "count": 1,
+                    "id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25"
+                },
+                {
+                    "count": 1,
+                    "id": "27b047e3-0d41-45e2-98e9-9391d7923a1e"
+                },
+                {
+                    "count": 1,
+                    "id": "34a1eb04-08f6-49d8-a1d1-b987a76bd8b1"
+                },
+                {
+                    "count": 8,
+                    "id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6"
+                },
+                {
+                    "count": 1,
+                    "id": "e4cf6c2f-0f1e-4980-9ef9-e4eabcae42a9"
+                },
+                {
+                    "count": 2,
+                    "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373"
+                },
+                {
+                    "count": 1,
+                    "id": "2e69537c-c898-4e13-a72d-ce3957a90304"
+                },
+                {
+                    "count": 2,
+                    "id": "a3fb7228-e76b-4e96-a40e-20b5fed75685"
+                },
+                {
+                    "count": 1,
+                    "id": "aa6723a2-75da-49f5-a1ba-cbfa82c55301"
+                },
+                {
+                    "count": 1,
+                    "id": "f9e7e855-1e3b-42d3-91b0-64ba8b5b8982"
+                },
+                {
+                    "count": 1,
+                    "id": "b473e293-59e3-4e04-acf2-622604aeb25f"
+                },
+                {
+                    "count": 2,
+                    "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99"
+                },
+                {
+                    "count": 1,
+                    "id": "541744d9-449d-420a-a5a1-2fffba18450f"
+                },
+                {
+                    "count": 1,
+                    "id": "8d38194e-b607-4ff4-9c19-0e8636d463bf"
+                },
+                {
+                    "count": 1,
+                    "id": "633a41f0-3889-49a0-b2fc-9baf59f4ddc2"
+                },
+                {
+                    "count": 1,
+                    "id": "544dbabd-cbfc-40da-a5ba-2fea9cddb453"
+                },
+                {
+                    "count": 1,
+                    "id": "a3292406-3f49-42d6-a547-e43dd5797f84"
+                },
+                {
+                    "count": 1,
+                    "id": "2ae77795-6a80-498b-bf69-6fd612f601e4"
+                },
+                {
+                    "count": 1,
+                    "id": "79ba18fd-f184-43c1-86df-56ee18ce806c"
+                },
+                {
+                    "count": 1,
+                    "id": "0070db93-142b-4d04-afd3-836792dc134b"
+                },
+                {
+                    "count": 2,
+                    "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68"
+                },
+                {
+                    "count": 1,
+                    "id": "91fceb34-0f2d-4392-be27-00dcd765637f"
+                },
+                {
+                    "count": 1,
+                    "id": "a8052556-8962-4130-86a8-6fb7b6a324f7"
+                },
+                {
+                    "count": 1,
+                    "id": "d1946630-e224-40db-8f0d-388b09622288"
+                },
+                {
+                    "count": 1,
+                    "id": "69fc70b8-b143-4662-ac95-e2743037239d"
+                },
+                {
+                    "count": 1,
+                    "id": "bff416bb-d193-4c45-b2c1-7c297dbfad08"
+                },
+                {
+                    "count": 1,
+                    "id": "584b15f2-6ae9-413a-8b8d-9244dbea4878"
+                }
+            ],
+            "Enchantment - Aura": [
+                {
+                    "count": 1,
+                    "id": "947a2665-2f4d-4193-8768-118f85334549"
+                },
+                {
+                    "count": 1,
+                    "id": "cf14d4e5-5965-45ad-97f7-26facf2884b5"
+                }
+            ],
+            "Artifact": [
+                {
+                    "count": 1,
+                    "id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838"
+                },
+                {
+                    "count": 1,
+                    "id": "539f5396-d99a-417d-a84c-dff7930b5900"
+                },
+                {
+                    "count": 1,
+                    "id": "95560508-7ac9-4be9-8a3f-3c7d5b52807b"
+                },
+                {
+                    "count": 1,
+                    "id": "6ad8011d-3471-4369-9d68-b264cc027487"
+                },
+                {
+                    "count": 1,
+                    "id": "fec77e0a-433e-4d32-9260-e26a37f6ad23"
+                }
+            ],
+            "Creature": [
+                {
+                    "count": 1,
+                    "id": "4ba5b3f6-503b-43e6-b66e-4f8c55cffed7"
+                },
+                {
+                    "count": 1,
+                    "id": "51f9a6cc-8eb2-44ed-a2d9-913ac514ad67"
+                },
+                {
+                    "count": 1,
+                    "id": "0ec88e35-191b-411b-9eb0-2dfef7ae4174"
+                },
+                {
+                    "count": 1,
+                    "id": "96b909ab-55f1-4cde-a675-2504de3da772"
+                },
+                {
+                    "count": 1,
+                    "id": "48c641df-d511-4e35-b623-9d1fdb5240da"
+                },
+                {
+                    "count": 1,
+                    "id": "c85d824b-c190-4d04-ab99-918ad0e6516c"
+                },
+                {
+                    "count": 1,
+                    "id": "70a6f08e-854d-4e2f-9d8c-c45ec3231157"
+                },
+                {
+                    "count": 1,
+                    "id": "c552bd73-ce75-40fd-9d80-9e90b6f45274"
+                },
+                {
+                    "count": 1,
+                    "id": "8b7a3613-f1bd-4262-9b11-b631167c2c2d"
+                },
+                {
+                    "count": 1,
+                    "id": "fbf9f8c5-849f-45d5-8129-5fc683c21a04"
+                },
+                {
+                    "count": 1,
+                    "id": "2facb1b3-4522-4610-a0ab-29ac53ca7fcd"
+                },
+                {
+                    "count": 1,
+                    "id": "a7656948-4d7d-47f7-b8a1-fc9716155e37"
+                },
+                {
+                    "count": 1,
+                    "id": "02b6900b-219f-4832-8f93-6ef27ee76c0c"
+                },
+                {
+                    "count": 1,
+                    "id": "934bd9f9-937b-4c6b-a849-012ae6bd3321"
+                },
+                {
+                    "count": 1,
+                    "id": "127795e6-3f0e-4318-95ad-ccb1912580ac"
+                },
+                {
+                    "count": 1,
+                    "id": "f0587c55-06c1-4930-a62e-668f37464ce9"
+                },
+                {
+                    "count": 1,
+                    "id": "2cf04076-adc4-4831-a3b8-9120d516f204"
+                },
+                {
+                    "count": 1,
+                    "id": "88e43e62-8bce-41b3-ac2d-47043fcc7077"
+                },
+                {
+                    "count": 1,
+                    "id": "ad9b7fbc-61c8-43ee-a65c-99206fd1e4df"
+                },
+                {
+                    "count": 1,
+                    "id": "3ceffadd-c32d-4508-b307-e03bf3c8e7b8"
+                },
+                {
+                    "count": 1,
+                    "id": "e4625704-1d52-44e4-804f-2f45644d76ac"
+                },
+                {
+                    "count": 1,
+                    "id": "24d0f5e7-0d9e-4b76-900e-a7274e80312d"
+                },
+                {
+                    "count": 1,
+                    "id": "1816eede-c5bd-49df-958f-a3af64cb2932"
+                },
+                {
+                    "count": 1,
+                    "id": "ffd34151-457a-4a93-82db-24b18319a06b"
+                },
+                {
+                    "count": 1,
+                    "id": "b81eaa2f-0554-41c6-bdf6-d1cb73b8f56f"
+                },
+                {
+                    "count": 1,
+                    "id": "2ae71e86-4400-4a30-9077-4d57a43e7395"
+                },
+                {
+                    "count": 1,
+                    "id": "1d725121-e50c-42f0-9128-56802f07c89e"
+                },
+                {
+                    "count": 1,
+                    "id": "52244c23-7680-4bed-8ef8-8d10e289d3f7"
+                },
+                {
+                    "count": 1,
+                    "id": "717bbb9d-0a5b-4979-a24b-9d54aac7657a"
+                },
+                {
+                    "count": 1,
+                    "id": "4b6512aa-535e-4edf-8797-43df2b8463de"
+                },
+                {
+                    "count": 1,
+                    "id": "e970f2df-90cb-45b8-8ae5-71b762908925"
+                },
+                {
+                    "count": 1,
+                    "id": "687cfdf7-8f35-464a-8d6e-9f2d769ed6b4"
+                },
+                {
+                    "count": 1,
+                    "id": "5d8acafe-c13e-43ca-a89e-0cfd12d95662"
+                },
+                {
+                    "count": 1,
+                    "id": "bf30b8ae-0125-4a00-bae8-ac1aa7703a08"
+                },
+                {
+                    "count": 1,
+                    "id": "95b53836-18aa-451a-992d-2a111deeeab2"
+                }
+            ],
+            "Sorcery": [
+                {
+                    "count": 1,
+                    "id": "7a2484a9-04fd-41a0-8224-610c1c07ed10"
+                },
+                {
+                    "count": 1,
+                    "id": "8b755881-a72d-4e21-a369-d2924eb4585a"
+                },
+                {
+                    "count": 1,
+                    "id": "ac6c5852-71c7-4f19-8c87-ccb345052862"
+                },
+                {
+                    "count": 1,
+                    "id": "dd963396-3f81-49ad-a68e-87b9764d7ac5"
+                },
+                {
+                    "count": 1,
+                    "id": "334c284e-7bc3-4c18-9f8d-4d846f80008e"
+                },
+                {
+                    "count": 1,
+                    "id": "1593ea18-2f2f-4ab4-83fb-6ccc0bec8a90"
+                },
+                {
+                    "count": 1,
+                    "id": "2ffc7509-c7ce-44c4-a8cf-90ed161b5d10"
+                }
+            ],
+            "Enchantment": [
+                {
+                    "count": 1,
+                    "id": "b61a87e3-dc98-4db9-abed-b47b677d81ab"
+                },
+                {
+                    "count": 1,
+                    "id": "97079964-7a2e-42c5-ad4a-9015c18a1e97"
+                },
+                {
+                    "count": 1,
+                    "id": "3127ae9b-a7a7-43ec-89d7-688f8445b33d"
+                },
+                {
+                    "count": 1,
+                    "id": "17739f55-486b-46ea-8785-70cc2bd2d872"
+                },
+                {
+                    "count": 1,
+                    "id": "b1305916-53cc-4021-897e-bbefc65dce78"
+                }
+            ],
+            "Instant": [
+                {
+                    "count": 1,
+                    "id": "2987c385-011a-4032-a516-a46d1e9dc9e8"
+                },
+                {
+                    "count": 1,
+                    "id": "b488e75f-af9c-43e2-8aca-f269fa2c720e"
+                },
+                {
+                    "count": 1,
+                    "id": "d683d985-9888-4d21-8b5f-69e69ce4a03b"
+                },
+                {
+                    "count": 1,
+                    "id": "70dc830e-d05b-4fc7-88dd-879e140b3fbf"
+                },
+                {
+                    "count": 1,
+                    "id": "2b76f9e9-cd28-4eaf-8674-215c34263f96"
+                }
+            ],
+            "Commander": [
+                {
+                    "count": 1,
+                    "id": "77a9e7cf-76e9-4323-8504-a5b831de00be"
+                }
+            ]
         }
-      },
+    },
     {
         "title": "ECL - Blight Curse",
         "id": "ECL - Blight Curse",

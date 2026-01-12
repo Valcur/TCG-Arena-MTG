@@ -85,8 +85,8 @@ async function main() {
     console.log(`- oracle.json: ${oracleURL}`);
     console.log(`- all.json: ${defaultURL}`);
 
-    await downloadAndExtractJSON(oracleURL, 'oracle.json');
-    await downloadAndExtractJSON(defaultURL, 'all.json');
+    //await downloadAndExtractJSON(oracleURL, 'oracle.json');
+    //await downloadAndExtractJSON(defaultURL, 'all.json');
 
     if (!fs.existsSync('oracle.json') || !fs.existsSync('all.json')) {
       throw new Error('❌ Les fichiers oracle.json ou all.json sont manquants après extraction.');

@@ -55,6 +55,7 @@
         ],
         "deckRulesets": {
             "EDH": {
+                "checkCardLegality": true,
                 "general": {
                     "min": 100,
                     "max": 100,

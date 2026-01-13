@@ -99,14 +99,14 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                     if (c.toughness) newCard.toughness = getPowerToughness(c.toughness);
 
                     // Legality override
-                    if (c.oracle_id.includes([
+                    if ([
                         "526ca4a9-3f50-4f7a-8169-2bda95792401"
-                    ])) {
+                    ].includes(c.oracle_id)) {
                         newCard._legal.EDH = 7
                     }
 
                     // Basic lands
-                    if (c.oracle_id.includes([
+                    if ([
                         "05d24b0c-904a-46b6-b42a-96a4d91a0dd4", // Wastes
                         "56719f6a-1a6c-4c0a-8d21-18f7d7350b68", // Swamp
                         "a3fb7228-e76b-4e96-a40e-20b5fed75685", // Mountain
@@ -122,7 +122,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                         "ac8cc74d-e43b-4118-bba0-dfa8b9c04d45", // Snow Plains
 
                         "195287aa-cdb6-496f-b796-2bfdc7a6e0c9"  // Barry"s land
-                    ])) {
+                    ].includes(c.oracle_id)) {
                         newCard._legal.EDH = 99
                         newCard._legal.Classic = 99
                     }

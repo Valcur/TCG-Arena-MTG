@@ -213,7 +213,14 @@
                         "alignment": "START",
                         "isHorizontalAllowed": true,
                         "noQuickActions": true,
-                        "autoPayFrom": true
+                        "autoPayFrom": true,
+                        "cardActionShortcut": {
+                            "action": "MOVE",
+                            "actionData": {
+                                "destination": "Creatures"
+                            },
+                            "image": "https://cdn.imgchest.com/files/1854412754b9.png"
+                        }
                     }
                 }
             }
@@ -352,7 +359,14 @@
                         "alignment": "START",
                         "isHorizontalAllowed": true,
                         "noQuickActions": true,
-                        "autoPayFrom": true
+                        "autoPayFrom": true,
+                        "cardActionShortcut": {
+                            "action": "MOVE",
+                            "actionData": {
+                                "destination": "Creatures"
+                            },
+                            "image": "https://cdn.imgchest.com/files/1854412754b9.png"
+                        }
                     }
                 }
             }

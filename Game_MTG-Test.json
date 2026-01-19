@@ -217,7 +217,7 @@
                         "cardActionShortcut": {
                             "action": "MOVE",
                             "actionData": {
-                                "destination": "Creatures"
+                                "destination": "Stack"
                             },
                             "image": "https://cdn.imgchest.com/files/1854412754b9.png"
                         }

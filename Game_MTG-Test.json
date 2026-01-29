@@ -7,7 +7,7 @@
         "formats": [
             {
                 "title": "EDH",
-                "customCategories": ["Commander"],
+                "customCategories": ["Commander", "Companion"],
                 "gameplay": "EDH",
                 "deckRuleset": "EDH"
             },
@@ -43,7 +43,7 @@
             },
             {
                 "title": "Duel Commander",
-                "customCategories": ["Commander"],
+                "customCategories": ["Commander", "Companion"],
                 "gameplay": "Duel_Commander",
                 "deckRuleset": "EDH"
             },
@@ -66,6 +66,16 @@
                         "category": "Commander",
                         "min": 1,
                         "max": 2
+                    },
+                    {
+                        "category": "Companion",
+                        "ignoreTotalCount": true,
+                        "min": 0,
+                        "max": 1
+                    },
+                    {
+                        "category": "Sideboard",
+                        "maxPerCard": 100
                     }
                 ]
             },

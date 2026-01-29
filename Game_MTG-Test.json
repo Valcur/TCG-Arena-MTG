@@ -167,7 +167,7 @@
                         }
                     ]
                 },
-                "categoriesAlreadyOnBoard": ["Commander"],
+                "categoriesAlreadyOnBoard": ["Commander", "Companion->Sideboard"],
                 "autoPlayFromHand": {
                     "Creature": "Creatures",
                     "Artifact": "Other",
@@ -313,7 +313,7 @@
                         }
                     ]
                 },
-                "categoriesAlreadyOnBoard": ["Commander"],
+                "categoriesAlreadyOnBoard": ["Commander", "Companion->Sideboard"],
                 "autoPlayFromHand": {
                     "Creature": "Creatures",
                     "Artifact": "Other",

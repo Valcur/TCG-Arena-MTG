@@ -65,6 +65,43 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                 const jsonObject = JSON.parse(data);
                 const result = {};
 
+                const formats = [
+                    {
+                        title: "commander",
+                        code: "EDH"
+                    },
+                    {
+                        title: "modern",
+                        code: "MD"
+                    },
+                    {
+                        title: "vintage",
+                        code: "VI"
+                    },
+                    {
+                        title: "standard",
+                        code: "ST"
+                    },
+                    {
+                        title: "pauper",
+                        code: "PA"
+                    },
+                    {
+                        title: "legacy",
+                        code: "LG"
+                    },
+                    {
+                        title: "pioneer",
+                        code: "PI"
+                    }
+                ]
+
+                const setCustomLegality= (card, value) => {
+                    formats.forEach(f => {
+                        card._legal[f.code] = value
+                    })
+                }
+
                 jsonObject.forEach(c => {
                     lastLoadedCard = c;
                     const { image, colors } = getImages(c);
@@ -89,20 +126,39 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                         set: c.set,
                         isHorizontal: c.layout == "split" || type == "Battle",
                         cost: cost,
-                        _legal: {
-                            "EDH": c.legalities.commander === "legal",
-                            "Classic": true
-                        }
+                        _legal: {}
                     };
+
+                    formats.forEach(f => {
+                        newCard._legal[f.code] = c.legalities[f.title] === "legal"
+                    })
 
                     if (c.power) newCard.power = getPowerToughness(c.power);
                     if (c.toughness) newCard.toughness = getPowerToughness(c.toughness);
 
                     // Legality override
                     if ([
-                        "526ca4a9-3f50-4f7a-8169-2bda95792401"
+                        "47e191f7-6314-4875-b5ee-57e5daf089c4", // Dragon's approach
+                        "3c1619bd-db5e-4df6-a196-0a9d62374f6d", // Hare apparent
+                        "0e488c6c-aae2-450f-b969-7bb5a1b37a66", // Persistent petioner
+                        "ec77d23b-0165-450d-9aae-73b755163753", // Rat colony
+                        "595a15f0-77f3-4544-8acc-10630e12cc14", // Shadowborn apostle
+                        "b53597f4-1a0f-4fa8-9c17-29178cdc4d2b", // Slime against humanity
+                        "7423b3b9-56eb-4cf2-8ada-135918219c4b", // Tempest hawk
+                        "f9453fe2-fadf-4cd4-8d2c-0eaa0e2d78d6" // Templar knigh
                     ].includes(c.oracle_id)) {
-                        newCard._legal.EDH = 7
+                        setCustomLegality(newCard, 200)
+                    }
+
+                    // Nazgul
+                    if (c.oracle_id === "48a62778-7c11-486f-a0e1-020c283a7ef9") {
+                        setCustomLegality(newCard, 9)
+                    }
+                    //48a62778-7c11-486f-a0e1-020c283a7ef9 nazgul
+
+                    // Seven dwarf
+                    if (c.oracle_id === "526ca4a9-3f50-4f7a-8169-2bda95792401") {
+                        setCustomLegality(newCard, 7)
                     }
 
                     // Basic lands
@@ -123,8 +179,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
 
                         "195287aa-cdb6-496f-b796-2bfdc7a6e0c9"  // Barry"s land
                     ].includes(c.oracle_id)) {
-                        newCard._legal.EDH = 99
-                        newCard._legal.Classic = 99
+                        setCustomLegality(newCard, 99)
                     }
 
                     // Gestion des cartes split/back

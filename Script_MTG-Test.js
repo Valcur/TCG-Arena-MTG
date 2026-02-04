@@ -234,7 +234,10 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
 
                 fs.writeFile(outputFilePath, JSON.stringify(result, null, 2), 'utf8', (err) => {
                     if (err) console.error('Erreur écriture output JSON:', err);
-                    else console.log(`Fichier sauvegardé: ${outputFilePath}, total cartes: ${Object.keys(result).length}`);
+                    else {
+                        console.log(`Fichier sauvegardé: ${outputFilePath}, total cartes: ${Object.keys(result).length}`);
+                        increaseGameVersion()
+                    }
                 });
             } catch (e) {
                 console.log(lastLoadedCard);
@@ -242,6 +245,31 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
             }
         });
     });
+}
+
+function increaseGameVersion() {
+    const gameJsonPath = './Game_MTG-Test.json';
+
+    try {
+        // 1. Lecture
+        const data = fs.readFileSync(gameJsonPath, 'utf8');
+        const gameConfig = JSON.parse(data);
+
+        // 2. Incrémentation
+        if (gameConfig.cards) {
+            const oldVersion = gameConfig.cards.version || 0;
+            gameConfig.cards.version = oldVersion + 1;
+
+            // 3. Écriture
+            fs.writeFileSync(gameJsonPath, JSON.stringify(gameConfig, null, 2), 'utf8');
+            console.log(`✅ Game json mis à jour : v${oldVersion} -> v${gameConfig.cards.version}`);
+            return gameConfig.cards.version;
+        } else {
+            console.error("❌ Erreur : La clé 'cards' n'existe pas dans Game.json");
+        }
+    } catch (err) {
+        console.error('❌ Erreur lors de la mise à jour de Game.json:', err.message);
+    }
 }
 
 // Utilisation

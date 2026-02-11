@@ -84,7 +84,7 @@ function getPowerToughness(value) {
 
 const setCustomLegality = (card, value) => {
     formats.forEach(f => {
-        card._legal[f.code] = value
+        card._legal[f.code] = card._legal[f.code] === true ? value : false
     })
 }
 
@@ -219,7 +219,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                     if (c.power) newCard.power = getPowerToughness(c.power);
                     if (c.toughness) newCard.toughness = getPowerToughness(c.toughness);
 
-                    handleLegalityOveride(newCard, c.oracleId)
+                    handleLegalityOveride(newCard, c.oracle_id)
 
                     handleSplitBack(newCard, c, image)
 

@@ -82,9 +82,9 @@ function getPowerToughness(value) {
     return Math.trunc(value);
 }
 
-const setCustomLegality = (card, value) => {
+const setCustomLegality = (card, value, force) => {
     formats.forEach(f => {
-        card._legal[f.code] = card._legal[f.code] === true ? value : false
+        card._legal[f.code] = force || card._legal[f.code] === true ? value : false
     })
 }
 
@@ -225,7 +225,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
 
                     if (c.type_line.includes("oken") || c.set_type === "token" || type === "Emblem" || type === "Card") {
                         newCard.isToken = true;
-                        setCustomLegality(newCard, true)
+                        setCustomLegality(newCard, true, true)
                     }
 
                     // Tokens liés

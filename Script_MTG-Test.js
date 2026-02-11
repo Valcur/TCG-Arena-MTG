@@ -225,6 +225,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
 
                     if (c.type_line.includes("oken") || c.set_type === "token" || type === "Emblem" || type === "Card") {
                         newCard.isToken = true;
+                        setCustomLegality(newCard, true)
                     }
 
                     // Tokens liés

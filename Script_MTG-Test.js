@@ -230,7 +230,7 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
                     // Tokens liés
                     if (c.all_parts) {
                         const tokens = c.all_parts
-                            .filter(p => p.component === "token" && allCards[p.id])
+                            .filter(p => (p.component === "token" || p.type_line === "Dungeon") && allCards[p.id])
                             .map(p => allCards[p.id]);
                         if (tokens.length) newCard.tokens = tokens;
                     }

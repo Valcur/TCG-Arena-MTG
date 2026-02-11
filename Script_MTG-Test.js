@@ -237,6 +237,8 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
 
                     if (type != "Other" && c.layout != "art_series" && !c.name.includes(" // Wanted!")) {
                         result[c.oracle_id] = newCard;
+                    } else if (c.type_line === "Dungeon") {
+                        result[c.oracle_id] = newCard;
                     }
                 });
 

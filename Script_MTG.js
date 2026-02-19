@@ -95,10 +95,12 @@ const handleLegalityOveride = (newCard, oracle_id) => {
         "3c1619bd-db5e-4df6-a196-0a9d62374f6d", // Hare apparent
         "0e488c6c-aae2-450f-b969-7bb5a1b37a66", // Persistent petioner
         "ec77d23b-0165-450d-9aae-73b755163753", // Rat colony
+        "104ea189-14cd-420f-afdc-57b0f827ab8e", // Relentless rats
         "595a15f0-77f3-4544-8acc-10630e12cc14", // Shadowborn apostle
         "b53597f4-1a0f-4fa8-9c17-29178cdc4d2b", // Slime against humanity
         "7423b3b9-56eb-4cf2-8ada-135918219c4b", // Tempest hawk
-        "f9453fe2-fadf-4cd4-8d2c-0eaa0e2d78d6" // Templar knigh
+        "f9453fe2-fadf-4cd4-8d2c-0eaa0e2d78d6", // Templar knigh
+        "87050537-99c9-4993-a770-4329b2e749e4"  // Cid, Timeless artificier
     ].includes(oracle_id)) {
         setCustomLegality(newCard, 200)
     }

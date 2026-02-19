@@ -67,8 +67,11 @@
       },
       {
         "title": "Jumpstart",
-        "gameplay": "Jumpstart",
-        "deckRuleset": "Classic"
+        "gameplay": "Jumpstart"
+      },
+      {
+        "title": "Other",
+        "gameplay": "Classic"
       }
     ],
     "deckRulesets": {
@@ -201,7 +204,7 @@
           "Land": "Mana",
           "Planeswalker": "Other",
           "Battle": "Other",
-          "Enchantment - Aura": "GROUP",
+          "Enchantment - Aura": "Stack",
           "Emblem": "Other",
           "Card": "Other"
         },
@@ -359,7 +362,7 @@
           "Land": "Mana",
           "Planeswalker": "Other",
           "Battle": "Other",
-          "Enchantment - Aura": "GROUP",
+          "Enchantment - Aura": "Stack",
           "Emblem": "Other",
           "Card": "Other"
         },
@@ -488,7 +491,7 @@
           "Land": "Mana",
           "Planeswalker": "Other",
           "Battle": "Other",
-          "Enchantment - Aura": "GROUP",
+          "Enchantment - Aura": "Stack",
           "Emblem": "Other",
           "Card": "Other"
         },
@@ -604,7 +607,7 @@
           "Land": "Mana",
           "Planeswalker": "Other",
           "Battle": "Other",
-          "Enchantment - Aura": "GROUP",
+          "Enchantment - Aura": "Stack",
           "Emblem": "Other",
           "Card": "Other"
         },

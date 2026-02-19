@@ -67,7 +67,8 @@
       },
       {
         "title": "Jumpstart",
-        "gameplay": "Jumpstart"
+        "gameplay": "Jumpstart",
+        "deckRuleset": "Jumpstart"
       },
       {
         "title": "Other",
@@ -99,6 +100,19 @@
           "min": 60,
           "maxPerCard": 4
         }
+      },
+      "Jumpstart": {
+        "general": {
+          "min": 20,
+          "max": 20,
+          "maxPerCard": 4
+        },
+        "categories": [
+          {
+            "category": "Sideboard",
+            "max": 0
+          }
+        ]
       }
     }
   },

@@ -251,7 +251,7 @@
             "title": "ExtraDeck",
             "isHidden": "no",
             "height": "SMALL",
-            "alignment": "EXTRA_DECK",
+            "alignment": "DECK",
             "isHorizontalAllowed": true
           },
           "Commander": {

@@ -157,7 +157,8 @@
           "Creatures",
           "Mana",
           "Other",
-          "Commander"
+          "Commander",
+          "ExtraDeck"
         ],
         "layout": {
           "direction": "column",
@@ -173,6 +174,12 @@
                 },
                 {
                   "section": "Creatures"
+                },
+                {
+                  "section": "ExtraDeck",
+                  "optional": {
+                    "key": "ExtraDeck"
+                  }
                 }
               ]
             },
@@ -238,6 +245,13 @@
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
+            "isHorizontalAllowed": true
+          },
+          "ExtraDeck": {
+            "title": "ExtraDeck",
+            "isHidden": "no",
+            "height": "SMALL",
+            "alignment": "EXTRA_DECK",
             "isHorizontalAllowed": true
           },
           "Commander": {
@@ -665,6 +679,6 @@
   "cards": {
     "dataUrl": "https://valcur.github.io/TCG-Arena-MTG/MTGCards-Test.json",
     "cardBack": "https://backs.scryfall.io/large/2/2/222b7a3b-2321-4d4c-af19-19338b134971.jpg",
-    "version": 1
+    "version": 3
   }
 }

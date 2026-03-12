@@ -250,10 +250,9 @@
           },
           "ExtraDeck": {
             "title": "ExtraDeck",
-            "isHidden": "no",
+            "isHidden": "yes",
             "height": "SMALL",
-            "alignment": "DECK",
-            "isHorizontalAllowed": true
+            "alignment": "DECK"
           },
           "Commander": {
             "title": "Commander",

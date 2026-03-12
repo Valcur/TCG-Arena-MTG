@@ -197,7 +197,8 @@
           ]
         },
         "categoriesAlreadyOnBoard": [
-          "Commander"
+          "Commander",
+          "Artifact - Attraction->ExtraDeck"
         ],
         "autoPlayFromHand": {
           "Creature": "Creatures",

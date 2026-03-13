@@ -211,7 +211,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Artifact"
         },
         "autoPlayFromStack": {
           "Creature": "Creatures",
@@ -224,7 +225,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "ExtraDeck"
         },
         "sectionsDict": {
           "Creatures": {

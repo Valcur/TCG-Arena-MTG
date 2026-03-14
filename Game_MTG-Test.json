@@ -212,7 +212,7 @@
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
           "Card": "Other",
-          "Artifact - Attraction": "Artifact"
+          "Artifact - Attraction": "Other"
         },
         "autoPlayFromStack": {
           "Creature": "Creatures",

@@ -86,6 +86,11 @@
             "max": 2
           },
           {
+            "category": "Artifact - Attraction",
+            "ignoreTotalCount": true,
+            "min": 10
+          },
+          {
             "category": "Sideboard",
             "maxPerCard": 100
           }
@@ -95,7 +100,14 @@
         "general": {
           "min": 60,
           "maxPerCard": 4
-        }
+        },
+        "categories": [
+          {
+            "category": "Artifact - Attraction",
+            "ignoreTotalCount": true,
+            "min": 10
+          }
+        ]
       }
     }
   },
@@ -174,12 +186,6 @@
                 },
                 {
                   "section": "Creatures"
-                },
-                {
-                  "section": "ExtraDeck",
-                  "optional": {
-                    "key": "ExtraDeck"
-                  }
                 }
               ]
             },
@@ -191,6 +197,21 @@
                 },
                 {
                   "section": "Other"
+                },
+                {
+                  "section": "ExtraDeck",
+                  "optional": {
+                    "key": "ExtraDeck"
+                  }
+                },
+                {
+                  "section": "Temporary",
+                  "style": {
+                    "width": "20%"
+                  },
+                  "optional": {
+                    "key": "Temporary"
+                  }
                 }
               ]
             }
@@ -226,7 +247,7 @@
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
           "Card": "Other",
-          "Artifact - Attraction": "ExtraDeck"
+          "Artifact - Attraction": "Other"
         },
         "sectionsDict": {
           "Creatures": {
@@ -249,6 +270,13 @@
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
+          },
+          "Temporary": {
+            "title": "Temporary",
+            "isHidden": "no",
+            "height": "SMALL",
+            "alignment": "END",
+            "isHorizontalAllowed": false
           },
           "ExtraDeck": {
             "title": "ExtraDeck",

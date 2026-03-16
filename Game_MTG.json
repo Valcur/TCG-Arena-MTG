@@ -90,8 +90,7 @@
           },
           {
             "category": "Artifact - Attraction",
-            "ignoreTotalCount": true,
-            "min": 10
+            "ignoreTotalCount": true
           },
           {
             "category": "Sideboard",
@@ -107,8 +106,7 @@
         "categories": [
           {
             "category": "Artifact - Attraction",
-            "ignoreTotalCount": true,
-            "min": 10
+            "ignoreTotalCount": true
           }
         ]
       }

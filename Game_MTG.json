@@ -89,6 +89,11 @@
             "max": 2
           },
           {
+            "category": "Artifact - Attraction",
+            "ignoreTotalCount": true,
+            "min": 10
+          },
+          {
             "category": "Sideboard",
             "maxPerCard": 100
           }
@@ -98,7 +103,14 @@
         "general": {
           "min": 60,
           "maxPerCard": 4
-        }
+        },
+        "categories": [
+          {
+            "category": "Artifact - Attraction",
+            "ignoreTotalCount": true,
+            "min": 10
+          }
+        ]
       }
     }
   },
@@ -160,7 +172,9 @@
           "Creatures",
           "Mana",
           "Other",
-          "Commander"
+          "Commander",
+          "ExtraDeck",
+          "Temporary"
         ],
         "layout": {
           "direction": "column",
@@ -187,13 +201,29 @@
                 },
                 {
                   "section": "Other"
+                },
+                {
+                  "section": "ExtraDeck",
+                  "optional": {
+                    "key": "Extra Deck"
+                  }
+                },
+                {
+                  "section": "Temporary",
+                  "style": {
+                    "width": "20%"
+                  },
+                  "optional": {
+                    "key": "Temporary"
+                  }
                 }
               ]
             }
           ]
         },
         "categoriesAlreadyOnBoard": [
-          "Commander"
+          "Commander",
+          "Artifact - Attraction->ExtraDeck"
         ],
         "autoPlayFromHand": {
           "Creature": "Creatures",
@@ -206,7 +236,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "Stack",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "autoPlayFromStack": {
           "Creature": "Creatures",
@@ -219,7 +250,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "sectionsDict": {
           "Creatures": {
@@ -242,6 +274,20 @@
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
+          },
+          "Temporary": {
+            "title": "Temporary",
+            "isHidden": "no",
+            "height": "SMALL",
+            "alignment": "END",
+            "isHorizontalAllowed": false
+          },
+          "ExtraDeck": {
+            "title": "ExtraDeck",
+            "isHidden": "yes",
+            "height": "SMALL",
+            "alignment": "DECK",
+            "displayedTitle": "Extra Deck"
           },
           "Commander": {
             "title": "Commander",
@@ -318,7 +364,9 @@
           "Creatures",
           "Mana",
           "Other",
-          "Commander"
+          "Commander",
+          "ExtraDeck",
+          "Temporary"
         ],
         "layout": {
           "direction": "column",
@@ -345,13 +393,29 @@
                 },
                 {
                   "section": "Other"
+                },
+                {
+                  "section": "ExtraDeck",
+                  "optional": {
+                    "key": "Extra Deck"
+                  }
+                },
+                {
+                  "section": "Temporary",
+                  "style": {
+                    "width": "20%"
+                  },
+                  "optional": {
+                    "key": "Temporary"
+                  }
                 }
               ]
             }
           ]
         },
         "categoriesAlreadyOnBoard": [
-          "Commander"
+          "Commander",
+          "Artifact - Attraction->ExtraDeck"
         ],
         "autoPlayFromHand": {
           "Creature": "Creatures",
@@ -364,7 +428,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "Stack",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "autoPlayFromStack": {
           "Creature": "Creatures",
@@ -377,7 +442,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "sectionsDict": {
           "Creatures": {
@@ -400,6 +466,20 @@
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
+          },
+          "Temporary": {
+            "title": "Temporary",
+            "isHidden": "no",
+            "height": "SMALL",
+            "alignment": "END",
+            "isHorizontalAllowed": false
+          },
+          "ExtraDeck": {
+            "title": "ExtraDeck",
+            "isHidden": "yes",
+            "height": "SMALL",
+            "alignment": "DECK",
+            "displayedTitle": "Extra Deck"
           },
           "Commander": {
             "title": "Commander",
@@ -461,7 +541,9 @@
         "customSections": [
           "Creatures",
           "Mana",
-          "Other"
+          "Other",
+          "ExtraDeck",
+          "Temporary"
         ],
         "layout": {
           "direction": "column",
@@ -477,6 +559,21 @@
                 },
                 {
                   "section": "Other"
+                },
+                {
+                  "section": "ExtraDeck",
+                  "optional": {
+                    "key": "Extra Deck"
+                  }
+                },
+                {
+                  "section": "Temporary",
+                  "style": {
+                    "width": "20%"
+                  },
+                  "optional": {
+                    "key": "Temporary"
+                  }
                 }
               ]
             }
@@ -493,7 +590,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "Stack",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "autoPlayFromStack": {
           "Creature": "Creatures",
@@ -506,7 +604,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "sectionsDict": {
           "Creatures": {
@@ -529,6 +628,20 @@
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
+          },
+          "Temporary": {
+            "title": "Temporary",
+            "isHidden": "no",
+            "height": "SMALL",
+            "alignment": "END",
+            "isHorizontalAllowed": false
+          },
+          "ExtraDeck": {
+            "title": "ExtraDeck",
+            "isHidden": "yes",
+            "height": "SMALL",
+            "alignment": "DECK",
+            "displayedTitle": "Extra Deck"
           }
         }
       }
@@ -577,7 +690,9 @@
         "customSections": [
           "Creatures",
           "Mana",
-          "Other"
+          "Other",
+          "ExtraDeck",
+          "Temporary"
         ],
         "layout": {
           "direction": "column",
@@ -593,6 +708,21 @@
                 },
                 {
                   "section": "Other"
+                },
+                {
+                  "section": "ExtraDeck",
+                  "optional": {
+                    "key": "Extra Deck"
+                  }
+                },
+                {
+                  "section": "Temporary",
+                  "style": {
+                    "width": "20%"
+                  },
+                  "optional": {
+                    "key": "Temporary"
+                  }
                 }
               ]
             }
@@ -609,7 +739,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "Stack",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "autoPlayFromStack": {
           "Creature": "Creatures",
@@ -622,7 +753,8 @@
           "Battle": "Other",
           "Enchantment - Aura": "GROUP",
           "Emblem": "Other",
-          "Card": "Other"
+          "Card": "Other",
+          "Artifact - Attraction": "Other"
         },
         "sectionsDict": {
           "Creatures": {
@@ -645,6 +777,20 @@
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
+          },
+          "Temporary": {
+            "title": "Temporary",
+            "isHidden": "no",
+            "height": "SMALL",
+            "alignment": "END",
+            "isHorizontalAllowed": false
+          },
+          "ExtraDeck": {
+            "title": "ExtraDeck",
+            "isHidden": "yes",
+            "height": "SMALL",
+            "alignment": "DECK",
+            "displayedTitle": "Extra Deck"
           }
         }
       }

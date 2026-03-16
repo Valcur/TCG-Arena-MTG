@@ -50,6 +50,7 @@ function getCardType(typeLine, setType, name) {
     if (t.includes("battle")) return "Battle";
     if (t.includes("creature")) return "Creature";
     if (t.includes("land") && !t.includes("lander")) return "Land";
+    if (t.includes("attraction")) return "Artifact - Attraction";
     if (t.includes("artifact")) return "Artifact";
     if (t.includes("enchantment — aura")) return "Enchantment - Aura";
     if (t.includes("enchantment")) return "Enchantment";

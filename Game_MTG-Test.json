@@ -114,10 +114,23 @@
   "gameplay": {
     "EDH": {
       "mulligan": {
-        "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
         "startingHandSize": 7,
-        "drawNewHand": true,
-        "putSelectionAtBottom": true
+        "mulliganCycle": {
+          "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
+            "steps": ["toTop", "shuffle", "draw"],
+            "selectionRange": {
+                "min": 7
+            }
+        },
+        "postMulligan": {
+            "info": "Click the cards you want to put back at the bottom",
+            "steps": ["toBottom"],
+            "selectionRange": {
+                "min": 0,
+                "max": 7
+            },
+            "keepCardOrder": false
+        }
       },
       "newTurn": {
         "drawOnStart": true,

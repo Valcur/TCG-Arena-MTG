@@ -117,20 +117,20 @@
         "startingHandSize": 7,
         "mulliganCycle": {
           "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
-            "steps": ["reveal", "toTop", "shuffle", "draw"],
+            "steps": ["toTop", "shuffle", "draw"],
             "selectionRange": {
                 "min": 7
             }
         },
         "postMulligan": {
-            "info": "Click the cards you want to put back at the bottom.",
+            "info": "Click the cards you want to put back at the bottom of your deck.",
             "minMulligansToTrigger": 2,
             "steps": ["toBottom"],
             "selectionRange": {
                 "min": 0,
                 "max": 7
             },
-            "keepCardsOrder": false
+            "keepCardsOrder": true
         }
       },
       "newTurn": {
@@ -320,10 +320,24 @@
     },
     "Duel_Commander": {
       "mulligan": {
-        "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
         "startingHandSize": 7,
-        "drawNewHand": true,
-        "putSelectionAtBottom": true
+        "mulliganCycle": {
+          "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
+            "steps": ["toTop", "shuffle", "draw"],
+            "selectionRange": {
+                "min": 7
+            }
+        },
+        "postMulligan": {
+            "info": "Click the cards you want to put back at the bottom of your deck.",
+            "minMulligansToTrigger": 2,
+            "steps": ["toBottom"],
+            "selectionRange": {
+                "min": 0,
+                "max": 7
+            },
+            "keepCardsOrder": true
+        }
       },
       "newTurn": {
         "drawOnStart": false,
@@ -478,10 +492,24 @@
     },
     "Classic": {
       "mulligan": {
-        "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed (click those cards).",
         "startingHandSize": 7,
-        "drawNewHand": true,
-        "putSelectionAtBottom": true
+        "mulliganCycle": {
+          "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
+            "steps": ["toTop", "shuffle", "draw"],
+            "selectionRange": {
+                "min": 7
+            }
+        },
+        "postMulligan": {
+            "info": "Click the cards you want to put back at the bottom of your deck.",
+            "minMulligansToTrigger": 2,
+            "steps": ["toBottom"],
+            "selectionRange": {
+                "min": 0,
+                "max": 7
+            },
+            "keepCardsOrder": true
+        }
       },
       "newTurn": {
         "drawOnStart": false,
@@ -591,10 +619,24 @@
     },
     "Jumpstart": {
       "mulligan": {
-        "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed (click those cards).",
         "startingHandSize": 7,
-        "drawNewHand": true,
-        "putSelectionAtBottom": true
+        "mulliganCycle": {
+          "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
+            "steps": ["toTop", "shuffle", "draw"],
+            "selectionRange": {
+                "min": 7
+            }
+        },
+        "postMulligan": {
+            "info": "Click the cards you want to put back at the bottom of your deck.",
+            "minMulligansToTrigger": 2,
+            "steps": ["toBottom"],
+            "selectionRange": {
+                "min": 0,
+                "max": 7
+            },
+            "keepCardsOrder": true
+        }
       },
       "beforeGameStart": {
         "decksToPick": 2

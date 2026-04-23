@@ -123,7 +123,8 @@
             }
         },
         "postMulligan": {
-            "info": "Click the cards you want to put back at the bottom",
+            "info": "Click the cards you want to put back at the bottom.",
+            "minMulligansToTrigger": 2,
             "steps": ["toBottom"],
             "selectionRange": {
                 "min": 0,

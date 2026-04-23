@@ -115,6 +115,9 @@
     "EDH": {
       "mulligan": {
         "startingHandSize": 7,
+        "mulliganCount": {
+          "max": 0
+        },
         "mulliganCycle": {
           "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
             "steps": ["toTop", "shuffle", "draw"],

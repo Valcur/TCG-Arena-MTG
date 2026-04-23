@@ -117,7 +117,7 @@
         "startingHandSize": 7,
         "mulliganCycle": {
           "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
-            "steps": ["toTop", "shuffle", "reveal", "draw"],
+            "steps": ["reveal", "toTop", "shuffle", "draw"],
             "selectionRange": {
                 "min": 7
             }

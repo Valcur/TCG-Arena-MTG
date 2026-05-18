@@ -16,7 +16,7 @@ jobs:
           persist-credentials: true
 
       - name: Run script to build MTGCards.json
-        run: node processCards.js
+        run: node --max-old-space-size=2048 processCards.js
 
       - name: Commit and push MTGCards.json if updated
         run: |

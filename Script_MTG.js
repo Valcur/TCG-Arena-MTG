@@ -1,4 +1,5 @@
 const fs = require('fs');
+const readline = require('readline');
 
 let lastLoadedCard = "NONE";
 
@@ -175,14 +176,35 @@ const handleSplitBack = (newCard, c, image) => {
 }
 
 function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
-    fs.readFile(inputFilePath, 'utf8', (err, data) => {
-        if (err) return console.error('Erreur lecture input JSON:', err);
+    console.log("Étape 1 : Indexation native de allCards ligne par ligne (veuillez patienter)...");
+    const allCards = {};
 
-        fs.readFile(allCardsPath, 'utf8', (err, allData) => {
+    const rl = readline.createInterface({
+        input: fs.createReadStream(allCardsPath),
+        crlfDelay: Infinity
+    });
+
+    const idRegex = /"id"\s*:\s*"([^"]+)"/;
+    const oracleIdRegex = /"oracle_id"\s*:\s*"([^"]+)"/;
+
+    let currentId = null;
+
+    rl.on('line', (line) => {
+        const idMatch = line.match(idRegex);
+        if (idMatch) {
+            currentId = idMatch[1];
+        }
+
+        const oracleMatch = line.match(oracleIdRegex);
+        if (oracleMatch && currentId) {
+            allCards[currentId] = oracleMatch[1];
+            currentId = null; // Reset pour la prochaine carte
+        }
+    });
+
+    rl.on('close', () => {
+        fs.readFile(inputFilePath, 'utf8', (err, data) => {
             if (err) return console.error('Erreur lecture allCards JSON:', err);
-
-            const allCards = {};
-            JSON.parse(allData).forEach(d => allCards[d.id] = d.oracle_id);
 
             try {
                 const jsonObject = JSON.parse(data);

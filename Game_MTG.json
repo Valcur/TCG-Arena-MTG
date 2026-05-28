@@ -186,20 +186,26 @@
         }
       ],
       "sections": {
-        "customSections": [
-          "Creatures",
-          "Mana",
-          "Other",
-          "Commander",
-          "ExtraDeck",
-          "Temporary"
-        ],
         "layout": {
           "direction": "column",
           "content": [
             {
               "direction": "row",
               "content": [
+                {
+                  "direction": "row",
+                  "style": {
+                    "width": "auto"
+                  },
+                  "optional": {
+                    "key": "Counters"
+                  },
+                  "content": [
+                    {
+                      "section": "Counters"
+                    }
+                  ]
+                },
                 {
                   "section": "Commander",
                   "style": {
@@ -273,42 +279,36 @@
         },
         "sectionsDict": {
           "Creatures": {
-            "title": "Creatures",
             "isHidden": "no",
             "height": "MEDIUM",
             "alignment": "CENTER",
             "isHorizontalAllowed": true
           },
           "Mana": {
-            "title": "Mana",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "START",
             "isHorizontalAllowed": false
           },
           "Other": {
-            "title": "Other",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
           },
           "Temporary": {
-            "title": "Temporary",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": false
           },
           "ExtraDeck": {
-            "title": "ExtraDeck",
             "isHidden": "yes",
             "height": "SMALL",
             "alignment": "DECK",
             "displayedTitle": "Extra Deck"
           },
           "Commander": {
-            "title": "Commander",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "START",
@@ -321,6 +321,197 @@
                 "destination": "Stack"
               },
               "image": "https://cdn.imgchest.com/files/1854412754b9.png"
+            }
+          },
+          "Counters": {
+            "type": "custom",
+            "defaultValue": {
+              "white": 0,
+              "blue": 0,
+              "black": 0,
+              "red": 0,
+              "green": 0,
+              "grey": 0
+            },
+            "blueprint": {
+              "type": "div",
+              "props": {
+                "style": {
+                  "--white-color": "#F8F6D8",
+                  "--blue-color": "#0E68AB",
+                  "--black-color": "#150B00",
+                  "--red-color": "#D3202A",
+                  "--green-color": "#00733E",
+                  "--grey-color": "#CAC5C0",
+                  "width": "18vh",
+                  "height": "13vh",
+                  "borderRadius": "0.5vh",
+                  "marginRight": "0.5vh"
+                },
+                "className": "d-flex justify-content-between"
+              },
+              "children": [
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--white-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.white }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.white = value; chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--blue-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.blue }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.blue = value; chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--black-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.black }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.black = value; chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--red-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.red }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.red = value; chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--green-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.green }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.green = value; chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--grey-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.grey }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.grey = value; chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         }
@@ -413,6 +604,20 @@
               "direction": "row",
               "content": [
                 {
+                  "direction": "row",
+                  "style": {
+                    "width": "auto"
+                  },
+                  "optional": {
+                    "key": "Counters"
+                  },
+                  "content": [
+                    {
+                      "section": "Counters"
+                    }
+                  ]
+                },
+                {
                   "section": "Commander",
                   "style": {
                     "width": "15vh"
@@ -485,42 +690,36 @@
         },
         "sectionsDict": {
           "Creatures": {
-            "title": "Creatures",
             "isHidden": "no",
             "height": "MEDIUM",
             "alignment": "CENTER",
             "isHorizontalAllowed": true
           },
           "Mana": {
-            "title": "Mana",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "START",
             "isHorizontalAllowed": false
           },
           "Other": {
-            "title": "Other",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
           },
           "Temporary": {
-            "title": "Temporary",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": false
           },
           "ExtraDeck": {
-            "title": "ExtraDeck",
             "isHidden": "yes",
             "height": "SMALL",
             "alignment": "DECK",
             "displayedTitle": "Extra Deck"
           },
           "Commander": {
-            "title": "Commander",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "START",
@@ -533,6 +732,197 @@
                 "destination": "Stack"
               },
               "image": "https://cdn.imgchest.com/files/1854412754b9.png"
+            }
+          },
+          "Counters": {
+            "type": "custom",
+            "defaultValue": {
+              "white": 0,
+              "blue": 0,
+              "black": 0,
+              "red": 0,
+              "green": 0,
+              "grey": 0
+            },
+            "blueprint": {
+              "type": "div",
+              "props": {
+                "style": {
+                  "--white-color": "#F8F6D8",
+                  "--blue-color": "#0E68AB",
+                  "--black-color": "#150B00",
+                  "--red-color": "#D3202A",
+                  "--green-color": "#00733E",
+                  "--grey-color": "#CAC5C0",
+                  "width": "18vh",
+                  "height": "13vh",
+                  "borderRadius": "0.5vh",
+                  "marginRight": "0.5vh"
+                },
+                "className": "d-flex justify-content-between"
+              },
+              "children": [
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--white-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.white }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.white = value; chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--blue-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.blue }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.blue = value; chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--black-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.black }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.black = value; chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--red-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.red }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.red = value; chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--green-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.green }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.green = value; chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--grey-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.grey }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.grey = value; chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         }
@@ -596,18 +986,30 @@
         }
       ],
       "sections": {
-        "customSections": [
-          "Creatures",
-          "Mana",
-          "Other",
-          "ExtraDeck",
-          "Temporary"
-        ],
         "layout": {
           "direction": "column",
           "content": [
             {
-              "section": "Creatures"
+              "direction": "row",
+              "content": [
+                {
+                  "direction": "row",
+                  "style": {
+                    "width": "auto"
+                  },
+                  "optional": {
+                    "key": "Counters"
+                  },
+                  "content": [
+                    {
+                      "section": "Counters"
+                    }
+                  ]
+                },
+                {
+                  "section": "Creatures"
+                }
+              ]
             },
             {
               "direction": "row",
@@ -667,39 +1069,225 @@
         },
         "sectionsDict": {
           "Creatures": {
-            "title": "Creatures",
             "isHidden": "no",
             "height": "MEDIUM",
             "alignment": "CENTER",
             "isHorizontalAllowed": true
           },
           "Mana": {
-            "title": "Mana",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "START",
             "isHorizontalAllowed": false
           },
           "Other": {
-            "title": "Other",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
           },
           "Temporary": {
-            "title": "Temporary",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": false
           },
           "ExtraDeck": {
-            "title": "ExtraDeck",
             "isHidden": "yes",
             "height": "SMALL",
             "alignment": "DECK",
             "displayedTitle": "Extra Deck"
+          },
+          "Counters": {
+            "type": "custom",
+            "defaultValue": {
+              "white": 0,
+              "blue": 0,
+              "black": 0,
+              "red": 0,
+              "green": 0,
+              "grey": 0
+            },
+            "blueprint": {
+              "type": "div",
+              "props": {
+                "style": {
+                  "--white-color": "#F8F6D8",
+                  "--blue-color": "#0E68AB",
+                  "--black-color": "#150B00",
+                  "--red-color": "#D3202A",
+                  "--green-color": "#00733E",
+                  "--grey-color": "#CAC5C0",
+                  "width": "18vh",
+                  "height": "13vh",
+                  "borderRadius": "0.5vh",
+                  "marginRight": "0.5vh"
+                },
+                "className": "d-flex justify-content-between"
+              },
+              "children": [
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--white-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.white }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.white = value; chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--blue-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.blue }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.blue = value; chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--black-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.black }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.black = value; chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--red-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.red }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.red = value; chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--green-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.green }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.green = value; chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--grey-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.grey }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.grey = value; chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           }
         }
       }
@@ -765,18 +1353,30 @@
         }
       ],
       "sections": {
-        "customSections": [
-          "Creatures",
-          "Mana",
-          "Other",
-          "ExtraDeck",
-          "Temporary"
-        ],
         "layout": {
           "direction": "column",
           "content": [
             {
-              "section": "Creatures"
+              "direction": "row",
+              "content": [
+                {
+                  "direction": "row",
+                  "style": {
+                    "width": "auto"
+                  },
+                  "optional": {
+                    "key": "Counters"
+                  },
+                  "content": [
+                    {
+                      "section": "Counters"
+                    }
+                  ]
+                },
+                {
+                  "section": "Creatures"
+                }
+              ]
             },
             {
               "direction": "row",
@@ -836,39 +1436,225 @@
         },
         "sectionsDict": {
           "Creatures": {
-            "title": "Creatures",
             "isHidden": "no",
             "height": "MEDIUM",
             "alignment": "CENTER",
             "isHorizontalAllowed": true
           },
           "Mana": {
-            "title": "Mana",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "START",
             "isHorizontalAllowed": false
           },
           "Other": {
-            "title": "Other",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": true
           },
           "Temporary": {
-            "title": "Temporary",
             "isHidden": "no",
             "height": "SMALL",
             "alignment": "END",
             "isHorizontalAllowed": false
           },
           "ExtraDeck": {
-            "title": "ExtraDeck",
             "isHidden": "yes",
             "height": "SMALL",
             "alignment": "DECK",
             "displayedTitle": "Extra Deck"
+          },
+          "Counters": {
+            "type": "custom",
+            "defaultValue": {
+              "white": 0,
+              "blue": 0,
+              "black": 0,
+              "red": 0,
+              "green": 0,
+              "grey": 0
+            },
+            "blueprint": {
+              "type": "div",
+              "props": {
+                "style": {
+                  "--white-color": "#F8F6D8",
+                  "--blue-color": "#0E68AB",
+                  "--black-color": "#150B00",
+                  "--red-color": "#D3202A",
+                  "--green-color": "#00733E",
+                  "--grey-color": "#CAC5C0",
+                  "width": "18vh",
+                  "height": "13vh",
+                  "borderRadius": "0.5vh",
+                  "marginRight": "0.5vh"
+                },
+                "className": "d-flex justify-content-between"
+              },
+              "children": [
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--white-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.white }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.white = value; chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--blue-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.blue }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.blue = value; chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--black-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.black }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.black = value; chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "props": {
+                    "className": "d-flex justify-content-between flex-column"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--red-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.red }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.red = value; chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--green-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.green }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.green = value; chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "div",
+                      "props": {
+                        "className": "d-flex gap-2 align-items-center",
+                        "style": {
+                          "padding": "0.2rem",
+                          "borderRadius": "0.5vh",
+                          "backgroundColor": "var(--grey-color)"
+                        }
+                      },
+                      "children": [
+                        {
+                          "type": "input-number",
+                          "props": {
+                            "value": "{{ game.data.Counters.grey }}",
+                            "style": {
+                              "width": "8vh",
+                              "--input-background-color": "#18293d57"
+                            }
+                          },
+                          "onChange": "game.data.Counters.grey = value; chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           }
         }
       }

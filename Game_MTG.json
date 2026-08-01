@@ -72,6 +72,21 @@
       {
         "title": "Other",
         "gameplay": "Classic"
+      },
+      {
+        "title": "2HG_EDH",
+        "customCategories": [
+          "Commander"
+        ],
+        "gameplay": "2HG_EDH",
+        "legalityCode": "EDH",
+        "deckRuleset": "EDH"
+      },
+      {
+        "title": "2HG",
+        "gameplay": "2HG",
+        "legalityCode": "VI",
+        "deckRuleset": "Classic"
       }
     ],
     "deckRulesets": {
@@ -1658,6 +1673,77 @@
           }
         }
       }
+    },
+    "2HG_EDH": {
+      "extends": "EDH",
+      "newTurn": {
+        "turnOrder": "teamsSimultaneous",
+        "drawOnStart": false
+      },
+      "countersStartingValues": [
+        30,
+        0
+      ],
+      "teams": {
+        "sharedPlayerCounter": "true",
+        "placement": "sameSide"
+      },
+      "sections": {
+        "sharedZone": {
+          "height": 14,
+          "layout": {
+            "reverseForOppositeSide": true,
+            "direction": "column",
+            "content": [
+              {
+                "section": "Attackers"
+              }
+            ]
+          }
+        },
+        "sectionsDict": {
+          "Attackers": {
+            "height": "SMALL",
+            "alignment": "CENTER",
+            "isHidden": "no"
+          }
+        }
+      }
+    },
+    "2HG": {
+      "extends": "Classic",
+      "newTurn": {
+        "turnOrder": "teamsSimultaneous"
+      },
+      "countersStartingValues": [
+        60,
+        0
+      ],
+      "teams": {
+        "sharedPlayerCounter": "true",
+        "placement": "sameSide"
+      },
+      "sections": {
+        "sharedZone": {
+          "height": 14,
+          "layout": {
+            "reverseForOppositeSide": true,
+            "direction": "column",
+            "content": [
+              {
+                "section": "Attackers"
+              }
+            ]
+          }
+        },
+        "sectionsDict": {
+          "Attackers": {
+            "height": "SMALL",
+            "alignment": "CENTER",
+            "isHidden": "no"
+          }
+        }
+      }
     }
   },
   "defaultRessources": {
@@ -1679,5 +1765,6 @@
     "dataUrl": "https://valcur.github.io/TCG-Arena-MTG/MTGCards.json",
     "cardBack": "https://backs.scryfall.io/large/2/2/222b7a3b-2321-4d4c-af19-19338b134971.jpg",
     "version": 26
-  }
+  },
+  "translationsUrl": "https://valcur.github.io/TCG-Arena-MTG/Translations.json"
 }

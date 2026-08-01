@@ -2,8 +2,8 @@
     "additionalLanguages": [],
     "en": {
         "Gameplay": {
-            "2HG": "Two-Headed Giant",
-            "2HG_EDH": "Two-Headed Giant - EDH"
+            "2HG": "Two-Headed Giant (Beta only)",
+            "2HG_EDH": "Two-Headed Giant - EDH (Beta only)"
         }
     }
 }

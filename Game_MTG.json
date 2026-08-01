@@ -1685,7 +1685,8 @@
         0
       ],
       "teams": {
-        "sharedPlayerCounter": "true",
+        "cardsVisibleToTeam": true,
+        "sharedPlayerCounter": true,
         "placement": "sameSide"
       },
       "sections": {
@@ -1720,7 +1721,8 @@
         0
       ],
       "teams": {
-        "sharedPlayerCounter": "true",
+        "cardsVisibleToTeam": true,
+        "sharedPlayerCounter": true,
         "placement": "sameSide"
       },
       "sections": {

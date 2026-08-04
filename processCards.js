@@ -45,8 +45,8 @@ async function fetchScryfallData() {
           }
 
           resolve({
-            oracleURL: oracle.download_uri,
-            defaultURL: defaultCards.download_uri,
+            oracleURL: oracle.jsonl_download_uri,
+            defaultURL: defaultCards.jsonl_download_uri,
           });
         } catch (e) {
           reject(new Error(`Erreur JSON.parse: ${e.message}`));

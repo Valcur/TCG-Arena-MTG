@@ -202,83 +202,92 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
         }
     });
 
-    rl.on('close', () => {
-        fs.readFile(inputFilePath, 'utf8', (err, data) => {
-            if (err) return console.error('Erreur lecture allCards JSON:', err);
+   rl.on('close', () => {
+        const result = {};
+        const rlOracle = readline.createInterface({
+            input: fs.createReadStream(inputFilePath),
+            crlfDelay: Infinity
+        });
 
+        rlOracle.on('line', (line) => {
+            if (!line.trim()) return;
+
+            let c;
             try {
-                const jsonObject = JSON.parse(data);
-                const result = {};
+                c = JSON.parse(line);
+            } catch (e) {
+                console.error('Erreur parsing ligne oracle:', e.message);
+                return;
+            }
 
-                jsonObject.forEach(c => {
-                    lastLoadedCard = c;
-                    const { image, colors } = getImages(c);
-                    const type = getCardType(c.type_line, c.set_type, c.name);
-                    const cost = c.cmc ? Math.trunc(c.cmc) : 0
-                    const newCard = {
-                        id: c.oracle_id,
+            lastLoadedCard = c;
+            const { image, colors } = getImages(c);
+            const type = getCardType(c.type_line, c.set_type, c.name);
+            const cost = c.cmc ? Math.trunc(c.cmc) : 0
+            const newCard = {
+                id: c.oracle_id,
+                name: c.name,
+                type,
+                face: {
+                    front: {
                         name: c.name,
                         type,
-                        face: {
-                            front: {
-                                name: c.name,
-                                type,
-                                cost: cost,
-                                isHorizontal: c.layout == "split" || type == "Battle",
-                                image: image.front
-                            }
-                        },
-                        Colors: colors,
-                        "Card type": c.type_line,
-                        "Color identity": c.color_identity,
-                        set: c.set,
-                        isHorizontal: c.layout == "split" || type == "Battle",
                         cost: cost,
-                        _legal: {}
-                    };
-
-                    formats.forEach(f => {
-                        newCard._legal[f.code] = c.legalities[f.title] === "legal"
-                    })
-
-                    if (c.power) newCard.power = getPowerToughness(c.power);
-                    if (c.toughness) newCard.toughness = getPowerToughness(c.toughness);
-
-                    handleLegalityOveride(newCard, c.oracle_id)
-
-                    handleSplitBack(newCard, c, image)
-
-                    if (c.type_line.includes("oken") || c.set_type === "token" || type === "Emblem" || type === "Card") {
-                        newCard.isToken = true;
-                        setCustomLegality(newCard, true, true)
+                        isHorizontal: c.layout == "split" || type == "Battle",
+                        image: image.front
                     }
+                },
+                Colors: colors,
+                "Card type": c.type_line,
+                "Color identity": c.color_identity,
+                set: c.set,
+                isHorizontal: c.layout == "split" || type == "Battle",
+                cost: cost,
+                _legal: {}
+            };
 
-                    // Tokens liés
-                    if (c.all_parts) {
-                        const tokens = c.all_parts
-                            .filter(p => (p.component === "token" || p.type_line === "Dungeon") && allCards[p.id])
-                            .map(p => allCards[p.id]);
-                        if (tokens.length) newCard.tokens = tokens;
-                    }
+            formats.forEach(f => {
+                newCard._legal[f.code] = c.legalities[f.title] === "legal"
+            })
 
-                    if (type != "Other" && c.layout != "art_series" && !c.name.includes(" // Wanted!")) {
-                        result[c.oracle_id] = newCard;
-                    } else if (c.type_line === "Dungeon") {
-                        result[c.oracle_id] = newCard;
-                    }
-                });
+            if (c.power) newCard.power = getPowerToughness(c.power);
+            if (c.toughness) newCard.toughness = getPowerToughness(c.toughness);
 
-                fs.writeFile(outputFilePath, JSON.stringify(result, null, 2), 'utf8', (err) => {
-                    if (err) console.error('Erreur écriture output JSON:', err);
-                    else {
-                        console.log(`Fichier sauvegardé: ${outputFilePath}, total cartes: ${Object.keys(result).length}`);
-                        increaseGameVersion()
-                    }
-                });
-            } catch (e) {
-                console.log(lastLoadedCard);
-                console.error('Erreur traitement JSON:', e);
+            handleLegalityOveride(newCard, c.oracle_id)
+
+            handleSplitBack(newCard, c, image)
+
+            if (c.type_line.includes("oken") || c.set_type === "token" || type === "Emblem" || type === "Card") {
+                newCard.isToken = true;
+                setCustomLegality(newCard, true, true)
             }
+
+            if (c.all_parts) {
+                const tokens = c.all_parts
+                    .filter(p => (p.component === "token" || p.type_line === "Dungeon") && allCards[p.id])
+                    .map(p => allCards[p.id]);
+                if (tokens.length) newCard.tokens = tokens;
+            }
+
+            if (type != "Other" && c.layout != "art_series" && !c.name.includes(" // Wanted!")) {
+                result[c.oracle_id] = newCard;
+            } else if (c.type_line === "Dungeon") {
+                result[c.oracle_id] = newCard;
+            }
+        });
+
+        rlOracle.on('close', () => {
+            fs.writeFile(outputFilePath, JSON.stringify(result, null, 2), 'utf8', (err) => {
+                if (err) console.error('Erreur écriture output JSON:', err);
+                else {
+                    console.log(`Fichier sauvegardé: ${outputFilePath}, total cartes: ${Object.keys(result).length}`);
+                    increaseGameVersion()
+                }
+            });
+        });
+
+        rlOracle.on('error', (err) => {
+            console.error('Erreur lecture oracle JSONL:', err.message);
         });
     });
 }

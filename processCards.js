@@ -4,7 +4,7 @@ const zlib = require('zlib');
 const path = require('path');
 const { pipeline } = require('stream');
 const { promisify } = require('util');
-const modifyJsonFile = require('./Script_MTG.js'); // ou mets le code ici directement
+const modifyJsonFile = require('./Script_MTG.js');
 
 const pipelineAsync = promisify(pipeline);
 
@@ -45,8 +45,8 @@ async function fetchScryfallData() {
           }
 
           resolve({
-            oracleURL: oracle.jsonl_download_uri,
-            defaultURL: defaultCards.jsonl_download_uri,
+            oracleURL: oracle.download_uri || oracle.jsonl_download_uri,
+            defaultURL: defaultCards.download_uri || defaultCards.jsonl_download_uri,
           });
         } catch (e) {
           reject(new Error(`Erreur JSON.parse: ${e.message}`));
@@ -58,18 +58,23 @@ async function fetchScryfallData() {
 
 async function downloadAndExtractJSON(url, destPath) {
   return new Promise((resolve, reject) => {
-    const file = fs.createWriteStream(destPath);
-
     https.get(url, { headers: HEADERS }, (res) => {
       if (res.statusCode !== 200) {
+        res.resume();
         return reject(new Error(`Échec du téléchargement depuis ${url} - HTTP ${res.statusCode}`));
       }
 
-      res.pipe(file);
-      file.on('finish', () => {
-        console.log(`✅ Fichier téléchargé : ${destPath}`);
-        resolve();
-      });
+      const isGzip = url.endsWith('.gz') || res.headers['content-encoding'] === 'gzip' || res.headers['content-type'] === 'application/gzip';
+      const file = fs.createWriteStream(destPath);
+
+      const source = isGzip ? res.pipe(zlib.createGunzip()) : res;
+
+      pipelineAsync(source, file)
+        .then(() => {
+          console.log(`✅ Fichier téléchargé et extrait : ${destPath}`);
+          resolve();
+        })
+        .catch(reject);
     }).on('error', (err) => {
       reject(new Error(`Erreur réseau : ${err.message}`));
     });

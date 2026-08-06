@@ -264,14 +264,14 @@ function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
 
             if (c.all_parts) {
                 const tokens = c.all_parts
-                    .filter(p => (p.component === "token" || p.type_line === "Dungeon") && allCards[p.id])
+                    .filter(p => (p.component === "token" || p.type_line.includes("Dungeon")) && allCards[p.id])
                     .map(p => allCards[p.id]);
                 if (tokens.length) newCard.tokens = tokens;
             }
 
             if (type != "Other" && c.layout != "art_series" && !c.name.includes(" // Wanted!")) {
                 result[c.oracle_id] = newCard;
-            } else if (c.type_line === "Dungeon") {
+            } else if (c.type_line.includes("Dungeon")) {
                 result[c.oracle_id] = newCard;
             }
         });

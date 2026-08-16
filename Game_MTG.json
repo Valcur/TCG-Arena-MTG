@@ -1681,7 +1681,7 @@
         "drawOnStart": false
       },
       "countersStartingValues": [
-        30,
+        60,
         0
       ],
       "teams": {
@@ -1717,7 +1717,7 @@
         "turnOrder": "teamsSimultaneous"
       },
       "countersStartingValues": [
-        60,
+        30,
         0
       ],
       "teams": {

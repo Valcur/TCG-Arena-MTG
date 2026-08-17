@@ -346,7 +346,7 @@ function addTreacheryCards(cardList) {
                 },
                 name: card.name,
                 type: "Emblem",
-                isToken: false,
+                isToken: true,
                 cost: card.cmc,
                 Colors: [],
                 "Card type": "Identity",

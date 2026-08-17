@@ -60,6 +60,9 @@ async function createRoleCard() {
 
 
 const roleDistribution = {
+  1: ["Leader"],
+  2: ["Leader", "Traitor"],
+  3: ["Leader", "Traitor", "Assassin"],
   4: ["Leader", "Traitor", "Assassin", "Assassin"],
   5: ["Leader", "Traitor", "Assassin", "Assassin", "Guardian"],
 };

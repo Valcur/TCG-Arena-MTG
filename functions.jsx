@@ -1,3 +1,5 @@
+import { functions } from "stylus";
+
 function shuffleArray(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -22,12 +24,10 @@ function getRolesForPlayerCount(count) {
 }
 
 async function iniRoles() {
-   if (!game.isHost) return
+  if (!game.isHost) return
   const totalPlayers = game.turn.totalPlayers;
   const roles = shuffleArray(getRolesForPlayerCount(totalPlayers));
 
-  // Un pool mélangé par catégorie, pour piocher sans doublon même
-  // quand une catégorie est utilisée plusieurs fois (ex: 2x Assassin)
   const availableIdsByCategory = {};
   for (const category of Object.keys(treacheryCards)) {
     availableIdsByCategory[category] = shuffleArray(treacheryCards[category]);
@@ -35,13 +35,13 @@ async function iniRoles() {
 
   const playerRoleCards = [];
   for (let i = 0; i < totalPlayers; i++) {
-    const role = roles[i];
-    const pool = availableIdsByCategory[role];
-    const cardId = pool && pool.length > 0 ? pool.pop() : null;
-    playerRoleCards.push(cardId);
+    const type = roles[i];
+    const pool = availableIdsByCategory[type];
+    const id = pool && pool.length > 0 ? pool.pop() : null;
+    playerRoleCards.push({ id, type });
   }
 
-  game.data.IdentityManager.playerRoleCards = playerRoleCards;
+  game.data.GameplayManager.playerRoleCards = playerRoleCards;
 
   await createRoleCard()
 }
@@ -50,7 +50,10 @@ async function createRoleCard() {
   const myIndex = game.turn.orderPosition
   const myCard = game.data.IdentityManager.playerRoleCards[myIndex]
   if (!myCard) return
-  await functions.createCard("treachery-" + myCard, "Identity")
+  const c = await functions.createCard("treachery-" + myCard.id, "Identity")
+  if (myCard.type === "Leader") {
+    await functions.updateCard(c, { hiddenTo: { "status": "no" } })
+  }
   await functions.repositionCards()
 }
 

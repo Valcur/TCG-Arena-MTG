@@ -333,11 +333,11 @@ function addTreacheryCards(cardList) {
 
         for (const card of cards) {
             const cardId = "treachery-" + card.id
-            cardList[cardId] = {
+            const c = {
                 id: cardId,
                 name: card.name,
                 type: "Emblem",
-                isToken: true,
+                isToken: false,
                 cost: card.cmc,
                 face: {
                     front: {
@@ -350,8 +350,12 @@ function addTreacheryCards(cardList) {
                 "Card type": "Emblem",
                 "Color identity": [],
                 set: "Treachery",
-                isHorizontal: false
+                isHorizontal: false,
+                _legal: {}
             }
+            setCustomLegality(c, false)
+            c._legal.EDH = true
+            cardList[cardId] = c
         }
     }
 }

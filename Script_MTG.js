@@ -335,22 +335,26 @@ function addTreacheryCards(cardList) {
             const cardId = "treachery-" + card.id
             const c = {
                 id: cardId,
-                name: card.name,
-                type: "Emblem",
-                isToken: false,
-                cost: card.cmc,
                 face: {
                     front: {
                         name: card.name,
                         image: card.image,
-                        type: "Emblem"
+                        type: "Emblem",
+                        "isHorizontal": false,
+                        cost: card.cmc
                     }
                 },
+                name: card.name,
+                type: "Emblem",
+                isToken: false,
+                cost: card.cmc,
                 Colors: [],
-                "Card type": "Emblem",
+                "Card type": "Identity",
                 "Color identity": [],
                 set: "Treachery",
                 isHorizontal: false,
+                power: 0,
+                toughness: 0,
                 _legal: {}
             }
             setCustomLegality(c, false)

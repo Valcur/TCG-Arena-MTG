@@ -54,6 +54,7 @@ async function createRoleCard() {
   if (myCard.type === "Leader") {
     await functions.updateCard(c, { hiddenTo: { "status": "no" } })
   }
+  await functions.updateCard(c, { owner: game.playerId })
   await functions.repositionCards()
 }
 

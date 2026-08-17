@@ -45,6 +45,7 @@ async function iniRoles() {
 async function createRoleCard() {
   const myIndex = game.turn.orderPosition
   const myCard = game.data.IdentityManager.playerRoleCards[myIndex]
+    console.log(myIndex, myCard, game.data)
   if (!myCard) return
   const c = await functions.createCard("treachery-" + myCard.id, "Identity")
   if (myCard.type === "Leader") {

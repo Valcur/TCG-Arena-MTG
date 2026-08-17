@@ -50,9 +50,9 @@ async function createRoleCard() {
   if (!myCard) return
   const c = await functions.createCard("treachery-" + myCard.id, "Identity")
   if (myCard.type === "Leader") {
-    await functions.updateCard(c, { hiddenTo: { "status": "no" } })
+    await functions.updateCards([c], { hiddenTo: { "status": "no" } })
   }
-  await functions.updateCard(c, { owner: game.playerId })
+  await functions.updateCards([c], { owner: game.playerId })
   await functions.repositionCards()
 }
 

@@ -39,7 +39,7 @@ async function iniRoles() {
     playerRoleCards.push({ id, type });
   }
 
-  game.data.GameplayManager.playerRoleCards = playerRoleCards;
+  game.data.IdentityManager.playerRoleCards = playerRoleCards;
 
   await createRoleCard()
 }

@@ -45,7 +45,6 @@ async function iniRoles() {
 async function createRoleCard() {
   const myIndex = game.turn.orderPosition
   const myCard = game.data.IdentityManager.playerRoleCards[myIndex]
-    console.log(myIndex, myCard, game.data)
   if (!myCard) return
   const c = await functions.createCard("treachery-" + myCard.id, "Identity")
   if (myCard.type === "Leader") {
@@ -53,6 +52,16 @@ async function createRoleCard() {
   }
   await functions.updateCards([c], { owner: game.playerId })
   await functions.repositionCards()
+}
+
+async function tryCreateRoleCard() {
+  if (game.data.MyIdentity?.hasRoleBeenCreated) return
+  if (!game.data.MyIdentity?.playersReady) return
+  const roleCards = game.data.IdentityManager?.playerRoleCards
+  if (!roleCards || roleCards.length === 0) return
+
+  await createRoleCard()
+  game.data.MyIdentity.hasRoleBeenCreated = true
 }
 
 async function revealRole() {

@@ -55,6 +55,13 @@ async function createRoleCard() {
   await functions.repositionCards()
 }
 
+async function revealRole() {
+  if (cards?.Identity?.length === 0) return
+  const myCard = cards?.Identity[0]
+  await functions.updateCards([myCard], { hiddenTo: { "status": "no" } })
+  await functions.createCardEffect(myCard)
+}
+
 
 const roleDistribution = {
   1: ["Leader"],

@@ -113,8 +113,8 @@ const treacheryCards = {
     "27",
     "28",
     "29",
-    "30",
-    "31"
+    "30"
+  //  "31" wearer of mask
   ],
   "Assassin": [
     "32",

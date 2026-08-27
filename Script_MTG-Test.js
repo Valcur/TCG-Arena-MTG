@@ -209,7 +209,7 @@ function graftTranslation(existingCard, c, lang) {
     if (!existingCard || !existingCard.face || !existingCard.face.front) return;
 
     const { image } = getImages(c);
-    const hasUsableImage = c.image_status !== "placeholder";
+    const hasUsableImage = c.highres_image === true;
 
     if (c.card_faces && c.card_faces.length >= 1) {
         const faceFront = c.card_faces[0];
@@ -384,7 +384,7 @@ function processTranslationFile(filePath, lang, savedPrints) {
         console.log(`Étape 2b : ${filePath}, passage ${lang}...`);
         let seen = 0;
         let grafted = 0;
-        let imageMissingCount = 0; // diagnostic: image_status != "placeholder" mais aucune image greffée
+        let imageMissingCount = 0; // diagnostic: highres_image=true mais aucune image greffée
 
         const rl = readline.createInterface({ input: fs.createReadStream(filePath), crlfDelay: Infinity });
 
@@ -403,10 +403,10 @@ function processTranslationFile(filePath, lang, savedPrints) {
             grafted++;
 
             const imageAfter = existingCard.face.front.image ? existingCard.face.front.image[lang] : undefined;
-            if (c.image_status !== "placeholder" && !imageBefore && !imageAfter) {
+            if (c.highres_image === true && !imageBefore && !imageAfter) {
                 imageMissingCount++;
                 if (imageMissingCount <= 5) {
-                    console.warn(`  ⚠️  image_status="${c.image_status}" mais image ${lang} non greffée: ${c.set}|${c.collector_number} (${c.name})`);
+                    console.warn(`  ⚠️  highres_image=true mais image ${lang} non greffée: ${c.set}|${c.collector_number} (${c.name})`);
                 }
             }
         });
@@ -414,7 +414,7 @@ function processTranslationFile(filePath, lang, savedPrints) {
         rl.on('close', () => {
             console.log(`  -> ${lang}: ${seen} impressions dans ${filePath}, ${grafted} greffées, ${seen - grafted} sans hôte (ignorées)`);
             if (imageMissingCount > 0) {
-                console.warn(`  ⚠️  ${imageMissingCount} cas avec image utilisable sans image greffée au total (voir avertissements ci-dessus pour les 5 premiers)`);
+                console.warn(`  ⚠️  ${imageMissingCount} cas highres sans image greffée au total (voir avertissements ci-dessus pour les 5 premiers)`);
             }
             resolve();
         });

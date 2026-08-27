@@ -209,7 +209,7 @@ function graftTranslation(existingCard, c, lang) {
     if (!existingCard || !existingCard.face || !existingCard.face.front) return;
 
     const { image } = getImages(c);
-    const hasHighRes = c.highres_image === true;
+    const hasUsableImage = c.image_status !== "placeholder";
 
     if (c.card_faces && c.card_faces.length >= 1) {
         const faceFront = c.card_faces[0];
@@ -221,16 +221,16 @@ function graftTranslation(existingCard, c, lang) {
         const nameBack = rootParts[1] || (faceBack ? (faceBack.printed_name || faceBack.name) : undefined);
 
         existingCard.face.front.name[lang] = nameFront;
-        if (hasHighRes && image.front) existingCard.face.front.image[lang] = image.front;
+        if (hasUsableImage && image.front) existingCard.face.front.image[lang] = image.front;
 
         // Ne renseigne le verso que si existingCard en a un (pas collapsé lors de l'étape EN)
         if (existingCard.face.back && faceBack) {
             existingCard.face.back.name[lang] = nameBack;
-            if (hasHighRes && image.back) existingCard.face.back.image[lang] = image.back;
+            if (hasUsableImage && image.back) existingCard.face.back.image[lang] = image.back;
         }
     } else {
         existingCard.face.front.name[lang] = c.printed_name || c.name;
-        if (hasHighRes && image.front) existingCard.face.front.image[lang] = image.front;
+        if (hasUsableImage && image.front) existingCard.face.front.image[lang] = image.front;
     }
 }
 
@@ -384,6 +384,7 @@ function processTranslationFile(filePath, lang, savedPrints) {
         console.log(`Étape 2b : ${filePath}, passage ${lang}...`);
         let seen = 0;
         let grafted = 0;
+        let imageMissingCount = 0; // diagnostic: image_status != "placeholder" mais aucune image greffée
 
         const rl = readline.createInterface({ input: fs.createReadStream(filePath), crlfDelay: Infinity });
 
@@ -397,12 +398,24 @@ function processTranslationFile(filePath, lang, savedPrints) {
             const existingCard = savedPrints.get(printKey(c));
             if (!existingCard) return; // aucune impression EN connue pour ce set+collector_number
 
+            const imageBefore = existingCard.face.front.image ? existingCard.face.front.image[lang] : undefined;
             graftTranslation(existingCard, c, lang);
             grafted++;
+
+            const imageAfter = existingCard.face.front.image ? existingCard.face.front.image[lang] : undefined;
+            if (c.image_status !== "placeholder" && !imageBefore && !imageAfter) {
+                imageMissingCount++;
+                if (imageMissingCount <= 5) {
+                    console.warn(`  ⚠️  image_status="${c.image_status}" mais image ${lang} non greffée: ${c.set}|${c.collector_number} (${c.name})`);
+                }
+            }
         });
 
         rl.on('close', () => {
             console.log(`  -> ${lang}: ${seen} impressions dans ${filePath}, ${grafted} greffées, ${seen - grafted} sans hôte (ignorées)`);
+            if (imageMissingCount > 0) {
+                console.warn(`  ⚠️  ${imageMissingCount} cas avec image utilisable sans image greffée au total (voir avertissements ci-dessus pour les 5 premiers)`);
+            }
             resolve();
         });
         rl.on('error', reject);

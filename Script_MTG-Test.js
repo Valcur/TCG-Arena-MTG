@@ -160,7 +160,6 @@ function buildFaceEn(c, image) {
         const rootNameParts = c.name ? c.name.split(' // ') : [];
         const nameFront = rootNameParts[0] || faceFront.name;
         const nameBack = rootNameParts[1] || (faceBack ? faceBack.name : undefined);
-        const sameNameBothSides = nameBack !== undefined && nameFront === nameBack;
 
         const globalSplitType = c.type_line ? c.type_line.split(' // ') : [];
         const typeLineFront = faceFront.type_line || globalSplitType[0] || '';
@@ -174,7 +173,7 @@ function buildFaceEn(c, image) {
             image: { en: image.front }
         };
 
-        if (faceBack && image.back && !sameNameBothSides) {
+        if (faceBack && image.back) {
             const typeLineBack = faceBack.type_line || globalSplitType[1] || typeLineFront;
             const typeBack = getCardType(typeLineBack, c.set_type, c.name);
             back = {

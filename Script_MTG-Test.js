@@ -400,7 +400,7 @@ async function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
     addTreacheryCards(result);
 
     const jsonString = JSON.stringify(result);
-    const gzipped = jsonString//zlib.gzipSync(jsonString);
+    const gzipped = zlib.gzipSync(jsonString);
 
     fs.writeFile(outputFilePath, gzipped, (err) => {
         if (err) console.error('Erreur écriture output JSON:', err);

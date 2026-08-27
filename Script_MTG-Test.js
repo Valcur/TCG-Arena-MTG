@@ -1,6 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 const zlib = require('zlib');
+const https = require('https');
 
 const formats = [
     { title: "commander", code: "EDH" },
@@ -12,8 +13,7 @@ const formats = [
     { title: "pioneer", code: "PI" }
 ];
 
-// Langues à greffer en plus de l'anglais — ajouter ici pour en supporter d'autres
-const TRANSLATED_LANGS = ["fr"];
+const FR_CARDS_PATH = './cardFr.json';
 
 // --- Helpers pour gérer les cartes sans champs top-level (ex: reversible_card) ---
 
@@ -148,30 +148,37 @@ const handleLegalityOveride = (newCard, oracle_id) => {
 };
 
 // Construit recto/verso en anglais — pour oracle.json ET les impressions EN supplémentaires de all.json
+// Le nom combiné "A // B" est toujours au niveau racine (c.name), même pour les reversible_card.
+// Si les deux faces ont le même nom (reversible_card), on ne garde qu'un seul objet (front).
 function buildFaceEn(c, image) {
     let front, back;
 
     if (c.card_faces && c.card_faces.length >= 1) {
         const faceFront = c.card_faces[0];
         const faceBack = c.card_faces[1];
-        const globalSplitType = c.type_line ? c.type_line.split(' // ') : [];
 
+        const rootNameParts = c.name ? c.name.split(' // ') : [];
+        const nameFront = rootNameParts[0] || faceFront.name;
+        const nameBack = rootNameParts[1] || (faceBack ? faceBack.name : undefined);
+        const sameNameBothSides = nameBack !== undefined && nameFront === nameBack;
+
+        const globalSplitType = c.type_line ? c.type_line.split(' // ') : [];
         const typeLineFront = faceFront.type_line || globalSplitType[0] || '';
         const typeFront = getCardType(typeLineFront, c.set_type, c.name);
 
         front = {
-            name: { en: faceFront.name },
+            name: { en: nameFront },
             type: typeFront,
             cost: Math.trunc(countCost(faceFront.mana_cost)),
             isHorizontal: typeFront == "Battle",
             image: { en: image.front }
         };
 
-        if (faceBack && image.back) {
+        if (faceBack && image.back && !sameNameBothSides) {
             const typeLineBack = faceBack.type_line || globalSplitType[1] || typeLineFront;
             const typeBack = getCardType(typeLineBack, c.set_type, c.name);
             back = {
-                name: { en: faceBack.name },
+                name: { en: nameBack },
                 type: typeBack,
                 cost: Math.trunc(countCost(faceBack.mana_cost)),
                 isHorizontal: typeBack == "Battle",
@@ -206,12 +213,19 @@ function graftTranslation(existingCard, c, lang) {
 
     if (c.card_faces && c.card_faces.length >= 1) {
         const faceFront = c.card_faces[0];
-        existingCard.face.front.name[lang] = faceFront.printed_name || faceFront.name;
+        const faceBack = c.card_faces[1];
+
+        const rootLocalized = c.printed_name || c.name;
+        const rootParts = rootLocalized ? rootLocalized.split(' // ') : [];
+        const nameFront = rootParts[0] || faceFront.printed_name || faceFront.name;
+        const nameBack = rootParts[1] || (faceBack ? (faceBack.printed_name || faceBack.name) : undefined);
+
+        existingCard.face.front.name[lang] = nameFront;
         if (hasHighRes && image.front) existingCard.face.front.image[lang] = image.front;
 
-        if (existingCard.face.back && c.card_faces.length === 2) {
-            const faceBack = c.card_faces[1];
-            existingCard.face.back.name[lang] = faceBack.printed_name || faceBack.name;
+        // Ne renseigne le verso que si existingCard en a un (pas collapsé lors de l'étape EN)
+        if (existingCard.face.back && faceBack) {
+            existingCard.face.back.name[lang] = nameBack;
             if (hasHighRes && image.back) existingCard.face.back.image[lang] = image.back;
         }
     } else {
@@ -362,27 +376,153 @@ function processAllCardsEnglish(allCardsPath, allCards, result, savedPrints) {
     });
 }
 
-// Étape 2b : all.json, passage par langue traduite — greffe name/image sur les cartes déjà connues
-function processAllCardsTranslation(allCardsPath, lang, savedPrints) {
+// Étape 2b : fichier de langue traduite — greffe name/image sur les cartes déjà connues.
+// Les cartes du fichier qui ne trouvent pas d'hôte (aucun print EN avec le même set+collector_number)
+// sont ignorées : ça arrive pour des sets exclusifs à une langue (ex: fbb, 4bb, psal), pas de bug.
+function processTranslationFile(filePath, lang, savedPrints) {
     return new Promise((resolve, reject) => {
-        console.log(`Étape 2b : all.json, passage ${lang}...`);
-        const rl = readline.createInterface({ input: fs.createReadStream(allCardsPath), crlfDelay: Infinity });
+        console.log(`Étape 2b : ${filePath}, passage ${lang}...`);
+        let seen = 0;
+        let grafted = 0;
+
+        const rl = readline.createInterface({ input: fs.createReadStream(filePath), crlfDelay: Infinity });
 
         rl.on('line', (line) => {
             if (!line.trim()) return;
             let c;
             try { c = JSON.parse(line); } catch (e) { return; }
             if (c.lang !== lang) return;
+            seen++;
 
             const existingCard = savedPrints.get(printKey(c));
-            if (!existingCard) return; // aucune impression connue pour ce set+collector_number
+            if (!existingCard) return; // aucune impression EN connue pour ce set+collector_number
 
             graftTranslation(existingCard, c, lang);
+            grafted++;
         });
 
-        rl.on('close', resolve);
+        rl.on('close', () => {
+            console.log(`  -> ${lang}: ${seen} impressions dans ${filePath}, ${grafted} greffées, ${seen - grafted} sans hôte (ignorées)`);
+            resolve();
+        });
         rl.on('error', reject);
     });
+}
+
+// --- Mise à jour de cardFr.json (upsert par id), inline pour ne pas dépendre de fetch-fr-cards.js ---
+// fetch-fr-cards.js reste disponible tel quel comme script indépendant, à lancer à la main si besoin.
+
+const FR_SEARCH_URL = 'https://api.scryfall.com/cards/search?order=released&q=lang%3Afr';
+const FR_FETCH_DELAY_MS = 550; // marge sous le rate limit de 2 req/s de Scryfall
+
+function sleepMs(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function frHttpGetJson(url) {
+    return new Promise((resolve, reject) => {
+        https.get(url, {
+            headers: {
+                'User-Agent': 'TCGArena-FrCardFetcher/1.0',
+                'Accept': 'application/json'
+            }
+        }, (res) => {
+            if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                res.resume();
+                return resolve(frHttpGetJson(res.headers.location));
+            }
+
+            let raw = '';
+            res.on('data', (chunk) => { raw += chunk; });
+            res.on('end', () => {
+                if (res.statusCode !== 200) {
+                    return reject(new Error(`HTTP ${res.statusCode} sur ${url} — ${raw.slice(0, 300)}`));
+                }
+                try {
+                    resolve(JSON.parse(raw));
+                } catch (e) {
+                    reject(new Error(`JSON invalide depuis ${url}: ${e.message}`));
+                }
+            });
+        }).on('error', reject);
+    });
+}
+
+function loadExistingFrCards(filePath) {
+    const map = new Map();
+    if (!fs.existsSync(filePath)) return map;
+
+    const content = fs.readFileSync(filePath, 'utf8');
+    const lines = content.split('\n');
+
+    for (const line of lines) {
+        if (!line.trim()) continue;
+        try {
+            const card = JSON.parse(line);
+            if (card && card.id) map.set(card.id, card);
+        } catch (e) {
+            // ligne corrompue, ignorée silencieusement
+        }
+    }
+
+    return map;
+}
+
+function writeFrCardsMap(filePath, map) {
+    return new Promise((resolve, reject) => {
+        const outStream = fs.createWriteStream(filePath, { flags: 'w' });
+        for (const card of map.values()) {
+            outStream.write(JSON.stringify(card) + '\n');
+        }
+        outStream.end((err) => (err ? reject(err) : resolve()));
+    });
+}
+
+// Récupère les cartes FR les plus récentes depuis l'API (URL de départ + 3 next_page,
+// soit 4 pages au total) et les fusionne (ajout/remplacement par id) dans le fichier existant.
+// Le tri order=released garantit que toute nouveauté apparaît dans ces premières pages —
+// jamais plus de ~600 cartes d'un coup, donc pas besoin de reparcourir tout l'historique.
+async function updateFrCardsFileInline(filePath) {
+    const existing = loadExistingFrCards(filePath);
+    const startingCount = existing.size;
+
+    const MAX_PAGES = 4; // URL de départ + 3 next_page
+    let url = FR_SEARCH_URL;
+    let page = 1;
+    let fetchedThisRun = 0;
+
+    while (url && page <= MAX_PAGES) {
+        console.log(`  Page ${page}/${MAX_PAGES}... (${fetchedThisRun} cartes récupérées cette passe)`);
+
+        let json;
+        try {
+            json = await frHttpGetJson(url);
+        } catch (err) {
+            console.error(`  Erreur sur la page ${page}: ${err.message}`);
+            console.error('  Arrêt — les cartes déjà fusionnées sont conservées.');
+            break;
+        }
+
+        if (Array.isArray(json.data)) {
+            for (const card of json.data) {
+                existing.set(card.id, card);
+                fetchedThisRun++;
+            }
+        }
+
+        if (json.has_more && json.next_page && page < MAX_PAGES) {
+            url = json.next_page;
+            page++;
+            await sleepMs(FR_FETCH_DELAY_MS);
+        } else {
+            url = null;
+        }
+    }
+
+    await writeFrCardsMap(filePath, existing);
+
+    console.log(`  -> ${fetchedThisRun} cartes reçues, ${existing.size} cartes au total dans ${filePath} (avant: ${startingCount})`);
+    return existing.size;
 }
 
 async function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
@@ -393,9 +533,14 @@ async function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
     await processOracleFile(inputFilePath, allCards, result, savedPrints);
     await processAllCardsEnglish(allCardsPath, allCards, result, savedPrints);
 
-    for (const lang of TRANSLATED_LANGS) {
-        await processAllCardsTranslation(allCardsPath, lang, savedPrints);
-    }
+    // Mise à jour du fichier FR : 3 passages pour fiabiliser la récupération réseau
+    // (upsert par id à chaque passage, rien n'est perdu si une page échoue en route)
+    console.log(`Mise à jour de ${FR_CARDS_PATH} (dernières nouveautés)...`);
+    await updateFrCardsFileInline(FR_CARDS_PATH);
+
+    // Greffage FR depuis cardFr.json uniquement — all.json ne contient pas de FR,
+    // et une carte non-FR dans un futur fichier de langue ne se grefferait de toute façon jamais.
+    await processTranslationFile(FR_CARDS_PATH, 'fr', savedPrints);
 
     addTreacheryCards(result);
 

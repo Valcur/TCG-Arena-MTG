@@ -15,6 +15,40 @@ const formats = [
 
 const FR_CARDS_PATH = './cardFr.json';
 
+// Renommages manuels d'id, à toi de maintenir : { "ancien_id": "nouvel_id" }.
+// Toute carte déjà sauvegardée dans un deck sous "ancien_id" continuera à être résolue
+// correctement, indéfiniment, sans jamais casser les decks existants.
+const RENAMED_IDS = {
+    // "vieil-id-carte-x": "nouvel-id-carte-x",
+};
+
+// Ajoute un alias pour chaque entrée de RENAMED_IDS, uniquement si la cible existe réellement.
+function applyManualRenames(result) {
+    Object.entries(RENAMED_IDS).forEach(([oldId, newId]) => {
+        if (result[newId]) {
+            result[oldId] = { id: oldId, aliasOf: newId };
+        } else {
+            console.warn(`⚠️  RENAMED_IDS: cible "${newId}" introuvable pour l'ancien id "${oldId}" — alias non créé.`);
+        }
+    });
+}
+
+// Aplatit les chaînes d'alias (A->B->C devient A->C) pour que la résolution côté app
+// reste un lookup direct à un seul niveau, même après plusieurs renommages successifs.
+function flattenAliasChains(result) {
+    Object.values(result).forEach((entry) => {
+        if (!entry.aliasOf) return;
+        let target = entry.aliasOf;
+        let hops = 0;
+        while (result[target] && result[target].aliasOf && hops < 10) {
+            target = result[target].aliasOf;
+            hops++;
+        }
+        entry.aliasOf = target;
+    });
+}
+
+
 // --- Helpers pour gérer les cartes sans champs top-level (ex: reversible_card) ---
 
 function getEffectiveTypeLine(c) {
@@ -333,10 +367,22 @@ function processOracleFile(inputFilePath, allCards, result, savedPrints) {
             if (!shouldIncludeCard(c, type)) return;
 
             const newCard = buildCardObject(c, image, colors, type, allCards);
-            newCard.id = getEffectiveOracleId(c);
+            const oracleId = getEffectiveOracleId(c);
+            // L'entrée par défaut reste keyée sur l'oracle_id (comportement actuel, inchangé) :
+            // ça reprend toujours automatiquement la dernière version sortie à chaque régénération.
+            newCard.id = oracleId;
 
-            result[newCard.id] = newCard;
+            result[oracleId] = newCard;
             savedPrints.set(printKey(c), newCard);
+
+            // Alias : préserve l'id scryfall PROPRE du print actuellement choisi comme représentant.
+            // Si ce print redevient un simple sibling à une régénération future (remplacé par un
+            // autre choix), il retrouvera son entrée complète habituelle via l'étape 2a — donc sa
+            // clé propre n'a jamais disparu, ni pendant qu'il est représentant ni après. Un deck qui
+            // avait sauvegardé cet id précis (via le sélecteur de variantes) le retrouve toujours.
+            if (c.id && c.id !== oracleId) {
+                result[c.id] = { id: c.id, aliasOf: oracleId };
+            }
         });
 
         rl.on('close', resolve);
@@ -555,6 +601,12 @@ async function modifyJsonFile(inputFilePath, outputFilePath, allCardsPath) {
     await processTranslationFile(FR_CARDS_PATH, 'fr', savedPrints);
 
     addTreacheryCards(result);
+
+    // Renommages manuels d'id (voir RENAMED_IDS en haut du fichier) — ajoute un alias pour
+    // chaque ancien id vers son nouvel id, puis aplatit les chaînes éventuelles (A->B->C
+    // devient A->C directement) pour que la résolution côté app reste un lookup simple.
+    applyManualRenames(result);
+    flattenAliasChains(result);
 
     const jsonString = JSON.stringify(result);
     const gzipped = zlib.gzipSync(jsonString);

@@ -275,6 +275,17 @@ function shouldIncludeCard(c, type) {
 }
 
 // Objet carte "de base" en anglais, id assigné par l'appelant (oracle_id ou id propre)
+// Aplatit le nom racine "A // A" en "A" quand les deux moitiés sont identiques
+// (cas des reversible_card comme Jinnie Fay) ; laisse "A // B" intact sinon.
+function getDisplayName(c) {
+    if (!c.name) return c.name;
+    const parts = c.name.split(' // ');
+    if (parts.length === 2 && parts[0] === parts[1]) {
+        return parts[0];
+    }
+    return c.name;
+}
+
 function buildCardObject(c, image, colors, type, allCards) {
     const oracleId = getEffectiveOracleId(c);
     const cmc = getEffectiveCmc(c);
@@ -282,7 +293,7 @@ function buildCardObject(c, image, colors, type, allCards) {
 
     const newCard = {
         id: null,
-        name: c.name,
+        name: getDisplayName(c),
         type,
         face: buildFaceEn(c, image),
         Colors: colors,

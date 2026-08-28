@@ -244,6 +244,12 @@ function graftTranslation(existingCard, c, lang) {
     const { image } = getImages(c);
     const hasUsableImage = c.highres_image === true;
 
+    // Nom racine (même logique d'aplatissement "A // A" -> "A" que côté anglais)
+    if (existingCard.name && typeof existingCard.name === 'object') {
+        const rootLocalizedForName = c.printed_name || c.name;
+        existingCard.name[lang] = collapseSameSidesName(rootLocalizedForName);
+    }
+
     if (c.card_faces && c.card_faces.length >= 1) {
         const faceFront = c.card_faces[0];
         const faceBack = c.card_faces[1];
@@ -275,15 +281,23 @@ function shouldIncludeCard(c, type) {
 }
 
 // Objet carte "de base" en anglais, id assigné par l'appelant (oracle_id ou id propre)
-// Aplatit le nom racine "A // A" en "A" quand les deux moitiés sont identiques
+// Aplatit un nom "A // A" en "A" quand les deux moitiés sont identiques
 // (cas des reversible_card comme Jinnie Fay) ; laisse "A // B" intact sinon.
-function getDisplayName(c) {
-    if (!c.name) return c.name;
-    const parts = c.name.split(' // ');
+// Réutilisé pour le nom anglais ET pour chaque traduction greffée.
+// Détecte les tokens/émblèmes/cartes spéciales (utilisé pour le flag isToken ET pour exclure
+// les réimpressions de tokens du scan de all.json, où elles n'apportent aucune valeur : oracle.json
+// fournit déjà une entrée par oracle_id, seule nécessaire pour la résolution des `tokens: [...]`).
+function isTokenLikeCard(typeLine, c, type) {
+    return typeLine.includes("oken") || c.set_type === "token" || type === "Emblem" || type === "Card";
+}
+
+function collapseSameSidesName(fullName) {
+    if (!fullName) return fullName;
+    const parts = fullName.split(' // ');
     if (parts.length === 2 && parts[0] === parts[1]) {
         return parts[0];
     }
-    return c.name;
+    return fullName;
 }
 
 function buildCardObject(c, image, colors, type, allCards) {
@@ -293,7 +307,7 @@ function buildCardObject(c, image, colors, type, allCards) {
 
     const newCard = {
         id: null,
-        name: getDisplayName(c),
+        name: { en: collapseSameSidesName(c.name) },
         type,
         face: buildFaceEn(c, image),
         Colors: colors,
@@ -315,7 +329,7 @@ function buildCardObject(c, image, colors, type, allCards) {
 
     handleLegalityOveride(newCard, oracleId);
 
-    if (typeLine.includes("oken") || c.set_type === "token" || type === "Emblem" || type === "Card") {
+    if (isTokenLikeCard(typeLine, c, type)) {
         newCard.isToken = true;
         setCustomLegality(newCard, true, true);
     }
@@ -419,6 +433,12 @@ function processAllCardsEnglish(allCardsPath, allCards, result, savedPrints) {
             const { image, colors } = getImages(c);
             const type = getCardType(getEffectiveTypeLine(c), c.set_type, c.name);
             if (!shouldIncludeCard(c, type)) return;
+
+            // Ne jamais ajouter les réimpressions de tokens comme siblings : oracle.json fournit
+            // déjà une entrée par oracle_id pour chaque token, seule nécessaire à la résolution
+            // des `tokens: [...]`. Les autres réimpressions (dizaines par set) ne servent à rien
+            // ici et gonflent le fichier pour un jeton qu'on ne propose jamais en variant-picker.
+            if (isTokenLikeCard(getEffectiveTypeLine(c), c, type)) return;
 
             const newCard = buildCardObject(c, image, colors, type, allCards);
             newCard.id = c.id;

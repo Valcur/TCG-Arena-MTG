@@ -22,7 +22,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add MTGCards.json Game_MTG.json
+          git add MTGCards.json Game_MTG.json cardFr.json
           git diff --cached --quiet || git commit -m "Update MTGCards.json from Scryfall API"
           git push
 
@@ -33,3 +33,4 @@ jobs:
           path: |
             MTGCards.json
             Game_MTG.json
+            cardFr.json

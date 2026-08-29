@@ -15,6 +15,10 @@ const formats = [
 
 const FR_CARDS_PATH = './cardFr.json';
 
+// Préfixe appliqué à tout id de print "sibling" (non-oracle_id) — élimine par construction
+// tout risque de collision avec un oracle_id, qui reste toujours un UUID brut sans préfixe.
+const PRINT_ID_PREFIX = 'p-';
+
 // Renommages manuels d'id, à toi de maintenir : { "ancien_id": "nouvel_id" }.
 // Toute carte déjà sauvegardée dans un deck sous "ancien_id" continuera à être résolue
 // correctement, indéfiniment, sans jamais casser les decks existants.
@@ -26,7 +30,7 @@ const RENAMED_IDS = {
 function applyManualRenames(result) {
     Object.entries(RENAMED_IDS).forEach(([oldId, newId]) => {
         if (result[newId]) {
-            result[oldId] = { id: oldId, aliasOf: newId };
+            setResultSafe(result, oldId, { id: oldId, aliasOf: newId }, 'RENAMED_IDS');
         } else {
             console.warn(`⚠️  RENAMED_IDS: cible "${newId}" introuvable pour l'ancien id "${oldId}" — alias non créé.`);
         }
@@ -242,7 +246,7 @@ function graftTranslation(existingCard, c, lang) {
     if (!existingCard || !existingCard.face || !existingCard.face.front) return;
 
     const { image } = getImages(c);
-    const hasUsableImage = c.highres_image === true;
+    const hasUsableImage = c.image_status === 'lowres' || c.image_status === 'highres_scan';
 
     // Nom racine (même logique d'aplatissement "A // A" -> "A" que côté anglais)
     if (existingCard.name && typeof existingCard.name === 'object') {
@@ -346,6 +350,18 @@ function buildCardObject(c, image, colors, type, allCards) {
 
 const printKey = (c) => `${c.set}|${c.collector_number}`;
 
+// Garde-fou : détecte toute collision de clé accidentelle (oracle_id vs id de print, par exemple)
+// avant qu'une entrée n'en écrase silencieusement une autre. Le risque réel est astronomiquement
+// faible (UUID v4 tirés du même espace, ~10^-26 avec le volume de cartes actuel), mais autant
+// être avertis plutôt que de perdre une carte sans le savoir si ça arrivait un jour.
+function setResultSafe(result, key, value, sourceLabel) {
+    const existing = result[key];
+    if (existing !== undefined && existing !== value) {
+        console.warn(`⚠️  Collision d'id détectée sur la clé "${key}" (source: ${sourceLabel}) — une entrée différente est écrasée. Ceci ne devrait jamais arriver.`);
+    }
+    result[key] = value;
+}
+
 // Étape 0 : indexation légère (regex) id -> oracle_id, pour la résolution des tokens
 function buildAllCardsIndex(allCardsPath) {
     return new Promise((resolve, reject) => {
@@ -397,7 +413,7 @@ function processOracleFile(inputFilePath, allCards, result, savedPrints) {
             // ça reprend toujours automatiquement la dernière version sortie à chaque régénération.
             newCard.id = oracleId;
 
-            result[oracleId] = newCard;
+            setResultSafe(result, oracleId, newCard, 'oracle.json');
             savedPrints.set(printKey(c), newCard);
 
             // Alias : préserve l'id scryfall PROPRE du print actuellement choisi comme représentant.
@@ -406,7 +422,8 @@ function processOracleFile(inputFilePath, allCards, result, savedPrints) {
             // clé propre n'a jamais disparu, ni pendant qu'il est représentant ni après. Un deck qui
             // avait sauvegardé cet id précis (via le sélecteur de variantes) le retrouve toujours.
             if (c.id && c.id !== oracleId) {
-                result[c.id] = { id: c.id, aliasOf: oracleId };
+                const printId = PRINT_ID_PREFIX + c.id;
+                setResultSafe(result, printId, { id: printId, aliasOf: oracleId }, 'oracle.json (alias)');
             }
         });
 
@@ -441,9 +458,10 @@ function processAllCardsEnglish(allCardsPath, allCards, result, savedPrints) {
             if (isTokenLikeCard(getEffectiveTypeLine(c), c, type)) return;
 
             const newCard = buildCardObject(c, image, colors, type, allCards);
-            newCard.id = c.id;
+            const printId = PRINT_ID_PREFIX + c.id;
+            newCard.id = printId;
 
-            result[c.id] = newCard;
+            setResultSafe(result, printId, newCard, 'all.json (sibling EN)');
             savedPrints.set(key, newCard);
         });
 
@@ -460,7 +478,7 @@ function processTranslationFile(filePath, lang, savedPrints) {
         console.log(`Étape 2b : ${filePath}, passage ${lang}...`);
         let seen = 0;
         let grafted = 0;
-        let imageMissingCount = 0; // diagnostic: highres_image=true mais aucune image greffée
+        let imageMissingCount = 0; // diagnostic: image_status utilisable mais aucune image greffée
 
         const rl = readline.createInterface({ input: fs.createReadStream(filePath), crlfDelay: Infinity });
 
@@ -479,10 +497,11 @@ function processTranslationFile(filePath, lang, savedPrints) {
             grafted++;
 
             const imageAfter = existingCard.face.front.image ? existingCard.face.front.image[lang] : undefined;
-            if (c.highres_image === true && !imageBefore && !imageAfter) {
+            const isUsable = c.image_status === 'lowres' || c.image_status === 'highres_scan';
+            if (isUsable && !imageBefore && !imageAfter) {
                 imageMissingCount++;
                 if (imageMissingCount <= 5) {
-                    console.warn(`  ⚠️  highres_image=true mais image ${lang} non greffée: ${c.set}|${c.collector_number} (${c.name})`);
+                    console.warn(`  ⚠️  image_status="${c.image_status}" mais image ${lang} non greffée: ${c.set}|${c.collector_number} (${c.name})`);
                 }
             }
         });
@@ -709,7 +728,7 @@ function addTreacheryCards(cardList) {
             };
             setCustomLegality(c, false);
             c._legal.EDH = true;
-            cardList[cardId] = c;
+            setResultSafe(cardList, cardId, c, 'treachery');
         }
     }
 }

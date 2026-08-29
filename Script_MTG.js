@@ -556,6 +556,38 @@ function frHttpGetJson(url) {
     });
 }
 
+// Ne garde que les champs réellement lus par graftTranslation/processTranslationFile :
+// tout le reste (URIs, légalités par format, prix, artiste, texte des règles...) est mort
+// poids dans cardFr.json — cette version allégée garde le fichier petit indéfiniment,
+// même après des dizaines de mises à jour incrémentales successives.
+function slimFrCard(c) {
+    const slim = {
+        id: c.id,
+        lang: c.lang,
+        set: c.set,
+        collector_number: c.collector_number,
+        name: c.name,
+        image_status: c.image_status
+    };
+
+    if (c.printed_name) slim.printed_name = c.printed_name;
+
+    if (c.card_faces && c.card_faces.length >= 1) {
+        slim.card_faces = c.card_faces.map((f) => {
+            const face = { name: f.name };
+            if (f.printed_name) face.printed_name = f.printed_name;
+            if (f.image_uris && f.image_uris.normal) {
+                face.image_uris = { normal: f.image_uris.normal };
+            }
+            return face;
+        });
+    } else if (c.image_uris && c.image_uris.normal) {
+        slim.image_uris = { normal: c.image_uris.normal };
+    }
+
+    return slim;
+}
+
 function loadExistingFrCards(filePath) {
     const map = new Map();
     if (!fs.existsSync(filePath)) return map;
@@ -613,7 +645,7 @@ async function updateFrCardsFileInline(filePath) {
 
         if (Array.isArray(json.data)) {
             for (const card of json.data) {
-                existing.set(card.id, card);
+                existing.set(card.id, slimFrCard(card));
                 fetchedThisRun++;
             }
         }

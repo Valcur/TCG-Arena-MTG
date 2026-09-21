@@ -477,14 +477,6 @@ function buildCardObject(c, image, colors, type, allCards) {
         _legal: {}
     };
 
-    // Contrôle temporaire : affiche les capacités de mana extraites pour vérification.
-    if (newCard.face.front._mana || (newCard.face.back && newCard.face.back._mana)) {
-        console.log(`_mana [${newCard.name.en}]`, {
-            front: newCard.face.front._mana,
-            back: newCard.face.back ? newCard.face.back._mana : undefined
-        });
-    }
-
     formats.forEach(f => {
         newCard._legal[f.code] = c.legalities[f.title] === "legal";
     });

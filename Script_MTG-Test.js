@@ -188,6 +188,144 @@ const handleLegalityOveride = (newCard, oracle_id) => {
 // Construit recto/verso en anglais — pour oracle.json ET les impressions EN supplémentaires de all.json
 // Le nom combiné "A // B" est toujours au niveau racine (c.name), même pour les reversible_card.
 // Si les deux faces ont le même nom (reversible_card), on ne garde qu'un seul objet (front).
+// --- Extraction des capacités de production de mana ({T}: Add ...) ---
+// Voir discussion : format "<coût>:<production>", un coût vide signifie "juste {T}".
+// "/" à l'intérieur d'une accolade = un slot indépendant avec choix (ex: {G/W}).
+// "|" entre deux blocs = alternative non-décomposable (ex: {W}{W}|{U}{R}).
+
+const MANA_NUMBER_WORDS = { one: 1, two: 2, three: 3, four: 4, five: 5 };
+
+function producesMana(c) {
+    return Array.isArray(c.produced_mana) && c.produced_mana.length > 0;
+}
+
+// Découpe "{U}{U}, {U}{R}, or {R}{R}" ou "{G} or {W}" ou "{W}{B}" (une seule option) en options
+function splitManaOptions(manaListStr) {
+    return manaListStr
+        .split(/\s*,\s*(?:or\s+)?|\s+or\s+/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+}
+
+// Transforme le texte après "Add " (sans le point final) en chaîne de production,
+// ou null si non-parsable (le texte contient autre chose que des symboles/quantités reconnues).
+function parseManaClause(manaListStr) {
+    // Cas "any color" (dont "commander's color identity", traité pareil sur demande) — prioritaire
+    // "any color" ou "any one color" (couleur liée, traitée pareil comme convenu)
+    if (/any\s+(?:one\s+|single\s+)?color/i.test(manaListStr)) {
+        const qtyMatch = manaListStr.match(/^(\w+)\s+mana/i);
+        const qtyWord = qtyMatch ? qtyMatch[1].toLowerCase() : 'one';
+        const qty = MANA_NUMBER_WORDS[qtyWord] || 1;
+        return '{Any}'.repeat(qty);
+    }
+
+    const options = splitManaOptions(manaListStr);
+    if (options.length === 0) return null;
+
+    const optionTokens = options.map((opt) => opt.match(/\{[^}]+\}/g));
+    // Une option sans symbole reconnu (texte dynamique, etc.) rend toute la clause non-parsable
+    if (optionTokens.some((tokens) => !tokens || tokens.length === 0)) return null;
+
+    if (optionTokens.length === 1) {
+        return optionTokens[0].join('');
+    }
+
+    const length = optionTokens[0].length;
+    const sameLength = optionTokens.every((tokens) => tokens.length === length);
+
+    if (sameLength) {
+        // Produire du mana est un événement simultané : {U}{R} et {R}{U} donnent le même
+        // résultat. On compare donc des multi-ensembles non-ordonnés (combinaisons avec
+        // répétition), pas des tuples positionnels — sinon UR/RU comptent à tort comme 2 cas
+        // distincts et une vraie décomposition symétrique (ex: {U/R}{U/R}) est ratée.
+        const symbolSet = new Set();
+        optionTokens.forEach((tokens) => tokens.forEach((tok) => symbolSet.add(tok)));
+        const symbols = [...symbolSet].sort();
+
+        function generateMultisets(startIdx, remaining, current, results) {
+            if (remaining === 0) {
+                results.push(current.join(''));
+                return;
+            }
+            for (let i = startIdx; i < symbols.length; i++) {
+                current.push(symbols[i]);
+                generateMultisets(i, remaining - 1, current, results);
+                current.pop();
+            }
+        }
+        const allMultisets = [];
+        generateMultisets(0, length, [], allMultisets);
+        const generatedSet = new Set(allMultisets);
+
+        const originalSet = new Set(optionTokens.map((tokens) => [...tokens].sort().join('')));
+
+        const isValidDecomposition = originalSet.size === generatedSet.size
+            && [...originalSet].every((combo) => generatedSet.has(combo));
+
+        if (isValidDecomposition) {
+            const slot = symbols.length === 1
+                ? symbols[0]
+                : `{${symbols.map((tok) => tok.slice(1, -1)).join('/')}}`;
+            return slot.repeat(length);
+        }
+    }
+
+    // Décomposition invalide : blocs distincts, non-décomposables, séparés par "|"
+    return optionTokens.map((tokens) => tokens.join('')).join('|');
+}
+
+// Parcourt oracle_text ligne par ligne (une ligne = une capacité en templating Magic officiel)
+// et retourne les capacités de production de mana au format "<coût>:<production>".
+function extractManaAbilities(oracleText) {
+    if (!oracleText) return [];
+    const abilities = [];
+
+    oracleText.split('\n').forEach((rawLine) => {
+        // Certaines capacités sont entièrement encadrées de parenthèses (texte de rappel),
+        // ex: "({T}: Add {R} or {W}.)" — on déballe uniquement quand la ligne COMPLÈTE est
+        // encadrée, pas quand la parenthèse n'est qu'un aparté en fin de ligne (ex: "Cycling
+        // {2} ({2}, Discard this card: Draw a card.)", qu'on ne veut surtout pas toucher).
+        let line = rawLine.trim();
+        if (line.startsWith('(') && line.endsWith(')')) {
+            line = line.slice(1, -1).trim();
+        }
+
+        const colonIndex = line.indexOf(':');
+        if (colonIndex === -1) return;
+
+        const costRaw = line.slice(0, colonIndex).trim();
+        if (!costRaw.endsWith('{T}')) return; // pas une capacité "engager"
+
+        // Le templating officiel sépare les composants de coût par ", " (ex: "{1}, {T}") —
+        // on normalise en retirant ces séparateurs avant de tester/stocker le coût.
+        const costStripped = costRaw.slice(0, -3).replace(/,\s*/g, '').trim();
+        // Coût composé uniquement de symboles {...} — tout texte en clair (sacrifice, discard...)
+        // exclut la ligne entière, quel que soit le mot.
+        if (costStripped && !/^(\{[^}]+\})*$/.test(costStripped)) return;
+
+        const effectRaw = line.slice(colonIndex + 1).trim();
+        const addMatch = effectRaw.match(/^Add\s+(.+?)\.(?:\s|$)/);
+        if (!addMatch) return; // n'ajoute pas de mana
+
+        const production = parseManaClause(addMatch[1]);
+        if (!production) return;
+
+        abilities.push(`${costStripped}:${production}`);
+    });
+
+    return abilities;
+}
+
+// {X} est une valeur choisie par le joueur à la lancée du sort (toujours traité comme 0 ici,
+// faute de flux de saisie dédié) — on le retire du coût stocké. Spécifique à NOTRE génération
+// de données ; le moteur de paiement générique, lui, ne connaît rien de "X" et continue de
+// traiter un symbole non reconnu comme une couleur normale, pour rester utilisable par
+// d'autres jeux qui pourraient légitimement définir une couleur nommée "X".
+function stripXCost(costStr) {
+    if (!costStr) return costStr;
+    return costStr.replace(/\{X\}/gi, '');
+}
+
 function buildFaceEn(c, image) {
     let front, back;
 
@@ -206,7 +344,7 @@ function buildFaceEn(c, image) {
         front = {
             name: { en: nameFront },
             type: typeFront,
-            cost: Math.trunc(countCost(faceFront.mana_cost)),
+            cost: stripXCost(faceFront.mana_cost) || '',
             isHorizontal: typeFront == "Battle",
             image: { en: image.front }
         };
@@ -217,7 +355,7 @@ function buildFaceEn(c, image) {
             back = {
                 name: { en: nameBack },
                 type: typeBack,
-                cost: Math.trunc(countCost(faceBack.mana_cost)),
+                cost: stripXCost(faceBack.mana_cost) || '',
                 isHorizontal: typeBack == "Battle",
                 image: { en: image.back }
             };
@@ -226,16 +364,31 @@ function buildFaceEn(c, image) {
         if (c.layout == "split" || c.layout == "adventure") {
             front.isHorizontal = !((c.keywords || []).includes("Aftermath") || c.layout == "adventure");
         }
+
+        if (producesMana(c)) {
+            const frontMana = extractManaAbilities(faceFront.oracle_text);
+            if (frontMana.length > 0) front._mana = frontMana;
+
+            if (back) {
+                const backMana = extractManaAbilities(faceBack.oracle_text);
+                if (backMana.length > 0) back._mana = backMana;
+            }
+        }
     } else {
         const typeLine = getEffectiveTypeLine(c);
         const type = getCardType(typeLine, c.set_type, c.name);
         front = {
             name: { en: c.name },
             type,
-            cost: Math.trunc(getEffectiveCmc(c)),
+            cost: stripXCost(c.mana_cost) || '',
             isHorizontal: c.layout == "split" || type == "Battle",
             image: { en: image.front }
         };
+
+        if (producesMana(c)) {
+            const frontMana = extractManaAbilities(c.oracle_text);
+            if (frontMana.length > 0) front._mana = frontMana;
+        }
     }
 
     return back ? { front, back } : { front };
@@ -323,6 +476,14 @@ function buildCardObject(c, image, colors, type, allCards) {
         cost: Math.trunc(cmc),
         _legal: {}
     };
+
+    // Contrôle temporaire : affiche les capacités de mana extraites pour vérification.
+    if (newCard.face.front._mana || (newCard.face.back && newCard.face.back._mana)) {
+        console.log(`_mana [${newCard.name.en}]`, {
+            front: newCard.face.front._mana,
+            back: newCard.face.back ? newCard.face.back._mana : undefined
+        });
+    }
 
     formats.forEach(f => {
         newCard._legal[f.code] = c.legalities[f.title] === "legal";
@@ -556,6 +717,38 @@ function frHttpGetJson(url) {
     });
 }
 
+// Ne garde que les champs réellement lus par graftTranslation/processTranslationFile :
+// tout le reste (URIs, légalités par format, prix, artiste, texte des règles...) est mort
+// poids dans cardFr.json — cette version allégée garde le fichier petit indéfiniment,
+// même après des dizaines de mises à jour incrémentales successives.
+function slimFrCard(c) {
+    const slim = {
+        id: c.id,
+        lang: c.lang,
+        set: c.set,
+        collector_number: c.collector_number,
+        name: c.name,
+        image_status: c.image_status
+    };
+
+    if (c.printed_name) slim.printed_name = c.printed_name;
+
+    if (c.card_faces && c.card_faces.length >= 1) {
+        slim.card_faces = c.card_faces.map((f) => {
+            const face = { name: f.name };
+            if (f.printed_name) face.printed_name = f.printed_name;
+            if (f.image_uris && f.image_uris.normal) {
+                face.image_uris = { normal: f.image_uris.normal };
+            }
+            return face;
+        });
+    } else if (c.image_uris && c.image_uris.normal) {
+        slim.image_uris = { normal: c.image_uris.normal };
+    }
+
+    return slim;
+}
+
 function loadExistingFrCards(filePath) {
     const map = new Map();
     if (!fs.existsSync(filePath)) return map;
@@ -613,7 +806,7 @@ async function updateFrCardsFileInline(filePath) {
 
         if (Array.isArray(json.data)) {
             for (const card of json.data) {
-                existing.set(card.id, card);
+                existing.set(card.id, slimFrCard(card));
                 fetchedThisRun++;
             }
         }

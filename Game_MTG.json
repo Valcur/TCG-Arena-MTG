@@ -401,7 +401,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.white = value; chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.white = value; functions.chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -425,7 +425,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.blue = value; chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.blue = value; functions.chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -449,7 +449,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.black = value; chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.black = value; functions.chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     }
@@ -481,7 +481,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.red = value; chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.red = value; functions.chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -505,7 +505,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.green = value; chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.green = value; functions.chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -529,7 +529,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.grey = value; chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.grey = value; functions.chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     }
@@ -775,7 +775,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.white = value; chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.white = value; functions.chatLog('White counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -799,7 +799,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.blue = value; chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.blue = value; functions.chatLog('Blue counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -823,7 +823,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.black = value; chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.black = value; functions.chatLog('Black counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     }
@@ -855,7 +855,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.red = value; chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.red = value; functions.chatLog('Red counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -879,7 +879,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.green = value; chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.green = value; functions.chatLog('Green counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     },
@@ -903,7 +903,7 @@
                               "--input-background-color": "#18293d57"
                             }
                           },
-                          "onChange": "game.data.Counters.grey = value; chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
+                          "onChange": "game.data.Counters.grey = value; functions.chatLog('Grey counter is now at ' + value + ' (' + (delta > 0 ? '+' + delta : delta) + ')')"
                         }
                       ]
                     }

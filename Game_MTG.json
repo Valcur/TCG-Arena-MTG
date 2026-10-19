@@ -18,7 +18,13 @@
         ],
         "legalityCode": "EDH",
         "gameplay": "EDH",
-        "deckRuleset": "EDH"
+        "deckRuleset": "EDH",
+        "gameModes": [
+            {
+                "title": "",
+                "players": 4
+            }
+        ]
       },
       {
         "title": "Modern",
@@ -80,13 +86,25 @@
         ],
         "gameplay": "2HG_EDH",
         "legalityCode": "EDH",
-        "deckRuleset": "EDH"
+        "deckRuleset": "EDH",
+        "gameModes": [
+            {
+                "title": "",
+                "players": 4
+            }
+        ]
       },
       {
         "title": "2HG",
         "gameplay": "2HG",
         "legalityCode": "VI",
-        "deckRuleset": "Classic"
+        "deckRuleset": "Classic",
+        "gameModes": [
+            {
+                "title": "",
+                "players": 4
+            }
+        ]
       },
       {
         "title": "f.treachery",
@@ -95,7 +113,13 @@
         ],
         "gameplay": "Treachery",
         "legalityCode": "EDH",
-        "deckRuleset": "EDH"
+        "deckRuleset": "EDH",
+        "gameModes": [
+            {
+                "title": "",
+                "players": 5
+            }
+        ]
       }
     ],
     "deckRulesets": {

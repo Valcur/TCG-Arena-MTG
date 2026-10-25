@@ -20,10 +20,10 @@
         "gameplay": "EDH",
         "deckRuleset": "EDH",
         "gameModes": [
-            {
-                "title": "",
-                "players": 4
-            }
+          {
+            "title": "",
+            "players": 4
+          }
         ]
       },
       {
@@ -88,10 +88,10 @@
         "legalityCode": "EDH",
         "deckRuleset": "EDH",
         "gameModes": [
-            {
-                "title": "",
-                "players": 4
-            }
+          {
+            "title": "",
+            "players": 4
+          }
         ]
       },
       {
@@ -100,10 +100,10 @@
         "legalityCode": "VI",
         "deckRuleset": "Classic",
         "gameModes": [
-            {
-                "title": "",
-                "players": 4
-            }
+          {
+            "title": "",
+            "players": 4
+          }
         ]
       },
       {
@@ -115,10 +115,10 @@
         "legalityCode": "EDH",
         "deckRuleset": "EDH",
         "gameModes": [
-            {
-                "title": "",
-                "players": 5
-            }
+          {
+            "title": "",
+            "players": 5
+          }
         ]
       }
     ],
@@ -1303,7 +1303,7 @@
   "cards": {
     "dataUrl": "https://valcur.github.io/TCG-Arena-MTG/MTGCards.json",
     "cardBack": "https://backs.scryfall.io/large/2/2/222b7a3b-2321-4d4c-af19-19338b134971.jpg",
-    "version": 42
+    "version": 43
   },
   "translationsUrl": "https://valcur.github.io/TCG-Arena-MTG/Translations.json"
 }

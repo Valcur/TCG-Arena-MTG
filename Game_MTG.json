@@ -165,7 +165,7 @@
       "mulligan": {
         "startingHandSize": 7,
         "mulliganCycle": {
-          "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
+          "info": "Draw seven cards again every time you mulligan. Once satisfied, you will have to put a card back on the bottom of your library for each time you have mulliganed after the first one.",
           "steps": [
             "toTop",
             "shuffle",
@@ -579,7 +579,7 @@
       "mulligan": {
         "startingHandSize": 7,
         "mulliganCycle": {
-          "info": "Draw seven cards again every time you mulligan. Once satisfied, put a card back on the bottom of your library for each time you have mulliganed after the first one (click those cards).",
+          "info": "Draw seven cards again every time you mulligan. Once satisfied, you will have to put a card back on the bottom of your library for each time you have mulliganed.",
           "steps": [
             "toTop",
             "shuffle",
@@ -591,7 +591,7 @@
         },
         "postMulligan": {
           "info": "Click the cards you want to put back at the bottom of your deck.",
-          "minMulligansToTrigger": 2,
+          "minMulligansToTrigger": 1,
           "steps": [
             "toBottom"
           ],
